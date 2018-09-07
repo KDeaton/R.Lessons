@@ -1,0 +1,6 @@
+---
+title: "R lesson 2 - Project Management with R"
+author: Kelsey Deaton
+date: 2018-09-07
+output: html_notebook
+---
