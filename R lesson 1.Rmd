@@ -7,7 +7,7 @@ output:
     df_print: paged
 ---
 
-#Challenge 2
+Challenge 2
 
 What is age and mass? 
 
@@ -18,7 +18,7 @@ mass <- mass * 2.3
 age <- age - 20
 ```
 
-#Challenge 3
+Challenge 3
 
 Run the code from the previous challenge, and write a command to compare mass to age. Is mass larger than age?
 
@@ -26,3 +26,33 @@ Run the code from the previous challenge, and write a command to compare mass to
 mass > age
 
 ```
+
+Challege 4
+
+Clean up your working environment by deleting the mass and age variables.
+
+```{r}
+rm(ls())
+```
+
+Retry
+
+```{r}
+list = ls()
+
+rm(list)
+```
+
+Worked. Could have also used rm(age,mass)
+
+
+Challenge 5
+
+Install the following packages: ggplot2, plyr, gapminder
+
+```{r}
+install.packages("plyr", "gapminder")
+```
+
+#already loaded
+
