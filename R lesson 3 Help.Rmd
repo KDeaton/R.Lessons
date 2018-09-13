@@ -1,0 +1,80 @@
+---
+title: "R lesson 3"
+author: Kelsey Deaton
+date: 2018-09-13
+output: html_notebook
+---
+
+GETTING HELP IN R
+
+```{r}
+?"+"
+
+??"+"
+
+?? rnorm()
+
+? rnorm()
+```
+
+#I don't understand the usefulness of Fuzzy Search
+
+```{r}
+?dput
+```
+
+Challenge 1
+Look at the help for the c function. What kind of vector do you expect you will create if you evaluate the following:
+
+c(1, 2, 3)
+c('d', 'e', 'f')
+c(1, 2, 'f')`
+
+```{r}
+
+? c(x)
+
+c(1:5)
+
+? c
+
+```
+
+#? c : worked. ? c() : did not work. why?
+
+Challenge 2
+
+Look at the help for the paste function. You’ll need to use this later. What is the difference between the sep and collapse arguments?
+
+```{r}
+
+? paste
+
+paste(1:12)
+
+paste(1:12, sep = ",")
+
+paste(1:12, collapse = ",")
+```
+
+> paste(1:12)
+ [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10" "11" "12"
+ 
+> paste(1:12, sep = ",")
+ [1] "1"  "2"  "3"  "4"  "5"  "6"  "7"  "8"  "9"  "10" "11" "12"
+ 
+> paste(1:12, collapse = ",")
+[1] "1,2,3,4,5,6,7,8,9,10,11,12"
+
+#I guess don't include () with help
+#sep = ???
+#collapse = separates by given value but doesn't inclue a space
+
+Challenge 3
+
+Use help to find a function (and its associated parameters) that you could use to load data from a csv file in which columns are delimited with “\t” (tab) and the decimal point is a “.” (period). This check for decimal separator is important, especially if you are working with international colleagues, because different countries have different conventions for the decimal point (i.e. comma vs period). hint: use ??csv to lookup csv related functions.
+```{r}
+?? csv
+```
+
+
