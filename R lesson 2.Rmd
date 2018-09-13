@@ -27,5 +27,9 @@ What kinds of values are stored in this file?
 
 Challenge 3
 
+Create a directory called "graphs". Modify .gitignore to include graphs/ so that it doesn't store disposable output. 
+
+#don't know how to do this, the answer code didn't work
+
 
 
