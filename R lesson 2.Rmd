@@ -4,3 +4,28 @@ author: Kelsey Deaton
 date: 2018-09-07
 output: html_notebook
 ---
+
+Challenge: Creating a self-contained project
+
+skip because we're using github which does this already
+
+
+Challenge 1: Download gapminder data
+
+Downloaded from internet and then uploaded in the files window.
+
+
+Challenge 2: 
+Use the command-line shell to answer the following questions:
+
+What is the size of the file?
+How many rows of data does it contain?
+What kinds of values are stored in this file?
+
+#didn't know how to run this, but practiced using the answers. 
+
+
+Challenge 3
+
+
+
