@@ -2,6 +2,17 @@
 title: "R lesson 4 Data Structures"
 author: Kelsey Deaton
 date: 9/17/2018
-output: html_notebook
+output: csv
 ---
+
+```{r}
+cats <- read.csv(file = "/home/guest/R.Lessons/data/feline_data.csv")
+cats
+
+```
+
+#the csv file didn't work with a header "R lesson 4" at the top, needed to be in standard csv function
+
+#print out has extra html symbols...
+
 
