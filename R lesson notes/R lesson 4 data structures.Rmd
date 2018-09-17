@@ -4,6 +4,7 @@ author: Kelsey Deaton
 date: 9/17/2018
 output: html
 ---
+Why isn't the html showing any of the following?
 
 ```{r}
 cats <- read.csv(file = "/home/guest/R.Lessons/data/feline_data.csv")
