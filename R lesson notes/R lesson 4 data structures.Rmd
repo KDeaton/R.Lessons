@@ -2,7 +2,7 @@
 title: "R lesson 4 Data Structures"
 author: Kelsey Deaton
 date: 9/17/2018
-output: csv
+output: html
 ---
 
 ```{r}
