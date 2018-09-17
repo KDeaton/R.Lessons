@@ -15,4 +15,41 @@ cats
 
 #print out has extra html symbols...
 
+```{r}
+cats$weight
+```
+
+```{r}
+cats$coat
+```
+
+```{r}
+file.show("data/feline_data.csv")
+```
+```{r}
+file.show("/home/guest/R.Lessons/data/feline_data.csv")
+```
+
+```{r}
+coats <- c('tabby', 'tortoiseshell', 'tortoiseshell', 'black', 'tabby')
+coats
+str(coats)
+categories <- factor(coats)
+class(categories)
+```
+
+
+###Challenges
+
+Challenge 1: Start by making a vector with the numbers 1 through 26. Multiply the vector by 2, and give the resulting vector names A through Z (hint: there is a built in vector called LETTERS)
+
+```{r}
+vector <- 1:26
+vector
+
+```
+
+```{r}
+vector*2
+```
 
