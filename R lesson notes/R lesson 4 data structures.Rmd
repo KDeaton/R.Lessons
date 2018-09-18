@@ -66,6 +66,120 @@ names(vector)
 #Challenge 2: Is there a factor in our cats data.frame? what is its name? Try using ?read.csv to figure out how to keep text columns as character vectors instead of factors; then write a command or two to show that the factor in cats is actually a character vector when loaded in this way.
 
 ```{r}
-
+str(vector)
 ```
 
+#Lists
+
+```{r}
+list1 = list("a", 12, 1, TRUE)
+list1
+list1[1]
+```
+#Challenge 3
+
+```{r}
+typeof(cats[1])
+typeof(cats[[1]])
+typeof(cats$coat)
+
+typeof(cats[1, 1])
+typeof(cats[, 1])
+typeof(cats[1, ])
+
+cats[1]
+cats[[1]]
+cats$coat
+
+cats[1, 1]
+cats[, 1]
+cats[1, ]
+```
+
+```{r}
+cats[1]
+```
+
+#Matrices
+
+```{r}
+matrix_example <- matrix(0, ncol=6, nrow=3)
+matrix_example
+```
+
+#Challenge 4: What do you think will be the result of length(matrix_example)? Try it. Were you right? Why / why not?
+
+I think ...? I don't know because it has 2 dimensions... Guess: counts number of values in matrix. 
+
+```{r}
+length(matrix_example)
+```
+
+I was right. 
+
+#Challenge 5: Make another matrix, this time containing the numbers 1:50, with 5 columns and 10 rows. Did the matrix function fill your matrix by column, or by row, as its default behaviour? See if you can figure out how to change this. (hint: read the documentation for matrix!)
+
+```{r}
+?matrix
+
+matrix_2 = matrix(1:50, nrow=10, ncol=5)
+matrix_2
+```
+
+Automatically sorts by columns first. 
+
+Try to sort by row first:
+
+```{r}
+matrix_3 = matrix(1:50, nrow=10, ncol=5, byrow=TRUE)
+matrix_3
+```
+
+Worked!
+
+#Challenge 6: Create a list of length two containing a character vector for each of the sections in this part of the workshop:
+
+Data types
+Data structures
+Populate each character vector with the names of the data types and data structures we’ve seen so far.
+
+#Honestly I didn't understand the question until I looked at the answer
+
+```{r}
+dataTypes <- c('double', 'complex', 'integer', 'character', 'logical')
+dataStructures <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
+answer <- list(dataTypes, dataStructures)
+answer
+```
+#Challenge 7: Consider the R output of the matrix below:
+
+     [,1] [,2]
+[1,]    4    1
+[2,]    9    5
+[3,]   10    7
+
+What was the correct command used to write this matrix? Examine each command and try to figure out the correct one before typing them. Think about what matrices the other commands will produce.
+
+A) matrix(c(4, 1, 9, 5, 10, 7), nrow = 3)
+B) matrix(c(4, 9, 10, 1, 5, 7), ncol = 2, byrow = TRUE)
+C) matrix(c(4, 9, 10, 1, 5, 7), nrow = 2)
+D) matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)
+
+###My guess is not A, not B, not C, def D. Now let's try them. 
+
+
+```{r}
+matrixA = matrix(c(4, 1, 9, 5, 10, 7), nrow = 3)
+matrixA
+
+matrixB = matrix(c(4, 9, 10, 1, 5, 7), ncol = 2, byrow = TRUE)
+matrixB
+
+matrixC = matrix(c(4, 9, 10, 1, 5, 7), nrow = 2)
+matrixC
+
+matrixD = matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)
+matrixD
+```
+
+Correct!
