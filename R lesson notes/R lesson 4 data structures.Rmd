@@ -58,3 +58,14 @@ vector
 vector*2
 ```
 
+```{r}
+names(vector) <- LETTERS
+names(vector)
+```
+
+#Challenge 2: Is there a factor in our cats data.frame? what is its name? Try using ?read.csv to figure out how to keep text columns as character vectors instead of factors; then write a command or two to show that the factor in cats is actually a character vector when loaded in this way.
+
+```{r}
+
+```
+
