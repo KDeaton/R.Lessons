@@ -47,6 +47,161 @@ now its added.
 #now you can add another row to the matrix. 
 
 ```{r}
-
+cats = rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
+cats
 ```
+
+#change factor into character
+
+```{r}
+str(cats)
+```
+
+Age wasn't kept...
+
+```{r}
+ncol(cats)
+```
+
+```{r}
+cats
+```
+
+Try redefining cats with age. 
+
+```{r}
+cats = cbind(cats, age)
+```
+
+Age didn't include the 4th tortoiseshell cat. so redefine age. 
+
+```{r}
+age = c(2,3,5,9)
+age
+```
+
+Now retry redefining cats. 
+
+```{r}
+cats = cbind(cats, age)
+cats
+```
+
+worked!
+
+OK Back to ...
+
+#change factor into character
+
+```{r}
+str(cats)
+```
+
+```{r}
+cats$coat <- as.character(cats$coat)
+str(cats)
+```
+
+#Challenge 1
+
+Let’s imagine that 1 human year is equivalent to 7 cat years.
+
+Create a vector called human_age by multiplying cats$age by 7.
+Convert human_age to a factor.
+Convert human_age back to a numeric vector using the as.numeric() function. Now divide it by 7 to get the original ages back. Explain what happened.
+
+
+```{r}
+human_age = cats$age * 7
+human_age
+```
+
+```{r}
+human_age = as.factor(human_age)
+typeof(human_age)
+```
+
+```{r}
+human_age = as.numeric(human_age)
+typeof(human_age)
+human_age
+```
+
+#important!
+
+value of the ages has changed. The ages were changed to factors, which are given a level of 1:4. Converting back to numeric gives the value of the level, not the original age. Need to convert back to character first. 
+
+#Removing rows
+
+Current cats matrix. 
+
+```{r}
+cats
+```
+
+Remove 3rd row. 
+
+```{r}
+cats[-3, ]
+```
+
+Can remove any rows with an NA with command "na.omit(cats)"
+
+#Remove columns
+
+```{r}
+cats[ ,-3]
+```
+
+Changes were not permanent though. Would have to reassign the changes to "cats"
+
+```{r}
+cats
+```
+
+
+#Challenge 2
+
+You can create a new data frame right from within R with the following syntax:
+
+df <- data.frame(id = c("a", "b", "c"),
+                 x = 1:3,
+                 y = c(TRUE, TRUE, FALSE),
+                 stringsAsFactors = FALSE)
+Make a data frame that holds the following information for yourself:
+
+first name
+last name
+lucky number
+Then use rbind to add an entry for the people sitting beside you. Finally, use cbind to add a column with each person’s answer to the question, “Is it time for coffee break?”
+
+
+```{r}
+ked = data.frame(id = c("Kelsey"),
+                  lucky_number = 28,
+                  coffee_break = TRUE,
+                  stringsAsFactors = FALSE)
+ked
+```
+
+```{r}
+tnw = data.frame(id = c("Talia"),
+                        lucky_number = 7,
+                        coffee_break = TRUE, 
+                        stringsAsFactors = FALSE)
+tnw
+```
+
+```{r}
+both = rbind(ked, tnw)
+both
+```
+
+Add last names.
+
+```{r}
+both = cbind(both, lastnames = c("Deaton", "Neal"))
+both
+```
+
 

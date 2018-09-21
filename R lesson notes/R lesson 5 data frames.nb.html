@@ -265,12 +265,295 @@ Levels: black calico tabby</code></pre>
 <h1>now you can add another row to the matrix.</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NH0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFNQUFBTU5BQUFBQkFBQUFBSUFBQUFCQUFBQUF3QUFBQVFBQUFRQ0FBQUFBUUFFQUFrQUFBQUdiR1YyWld4ekFBQUFFQUFBQUFRQUJBQUpBQUFBQldKc1lXTnJBQVFBQ1FBQUFBWmpZV3hwWTI4QUJBQUpBQUFBQlhSaFltSjVBQVFBQ1FBQUFBMTBiM0owYjJselpYTm9aV3hzQUFBRUFnQUFBQUVBQkFBSkFBQUFCV05zWVhOekFBQUFFQUFBQUFFQUJBQUpBQUFBQm1aaFkzUnZjZ0FBQVA0QUFBQU9BQUFBQkVBQXpNek16TXpOUUJRQUFBQUFBQUJBQ1ptWm1abVpta0FLWm1abVptWm1BQUFBRFFBQUFBUUFBQUFCQUFBQUFBQUFBQUVBQUFBQkFBQUVBZ0FBQUFFQUJBQUpBQUFBQlc1aGJXVnpBQUFBRUFBQUFBTUFCQUFKQUFBQUJHTnZZWFFBQkFBSkFBQUFCbmRsYVdkb2RBQUVBQWtBQUFBTWJHbHJaWE5mYzNSeWFXNW5BQUFFQWdBQUFBRUFCQUFKQUFBQUNYSnZkeTV1WVcxbGN3QUFBQTBBQUFBQ2dBQUFBQUFBQUFRQUFBUUNBQUFEL3dBQUFCQUFBQUFCQUFRQUNRQUFBQXBrWVhSaExtWnlZVzFsQUFBQS9nQUFCQUlBQUFBQkFBUUFDUUFBQUFkdmNIUnBiMjV6QUFBQ0V3QUFBQVVBQUFBUUFBQUFBUUFFQUFrQUFBQUJjZ0FBQUJBQUFBQUJBQVFBQ1FBQUFBOTFibTVoYldWa0xXTm9kVzVyTFRJQUFBQUtBQUFBQVFBQUFBRUFBQUFOQUFBQUFRQUFBQVFBQUFBTkFBQUFBUUFBQUFNQUFBUUNBQUFFL3dBQUFCQUFBQUFGQUFRQUNRQUFBQVpsYm1kcGJtVUFCQUFKQUFBQUJXeGhZbVZzQUFRQUNRQUFBQTV5YjNkdVlXMWxjeTV3Y21sdWRBQUVBQWtBQUFBS2NtOTNjeTUwYjNSaGJBQUVBQWtBQUFBS1kyOXNjeTUwYjNSaGJBQUFBUDRBQUFEKyJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["coat"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["likes_string"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"calico","2":"2.1","3":"1","_rn_":"1"},{"1":"black","2":"5.0","3":"0","_rn_":"2"},{"1":"tabby","2":"3.2","3":"1","_rn_":"3"},{"1":"tortoiseshell","2":"3.3","3":"1","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="change-factor-into-character" class="section level1">
+<h1>change factor into character</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKGNhdHMpXG5cbmBgYCJ9 -->
+<pre class="r"><code>str(cats)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0NCBvYnMuIG9mICAzIHZhcmlhYmxlczpcbiAkIGNvYXQgICAgICAgIDogRmFjdG9yIHcvIDQgbGV2ZWxzIFwiYmxhY2tcIixcImNhbGljb1wiLC4uOiAyIDEgMyA0XG4gJCB3ZWlnaHQgICAgICA6IG51bSAgMi4xIDUgMy4yIDMuM1xuICQgbGlrZXNfc3RyaW5nOiBpbnQgIDEgMCAxIDFcbiJ9 -->
+<pre><code>'data.frame':   4 obs. of  3 variables:
+ $ coat        : Factor w/ 4 levels &quot;black&quot;,&quot;calico&quot;,..: 2 1 3 4
+ $ weight      : num  2.1 5 3.2 3.3
+ $ likes_string: int  1 0 1 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Age wasn’t kept…</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmNvbChjYXRzKVxuXG5gYGAifQ== -->
+<pre class="r"><code>ncol(cats)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDNcbiJ9 -->
+<pre><code>[1] 3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NH0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFNQUFBTU5BQUFBQkFBQUFBSUFBQUFCQUFBQUF3QUFBQVFBQUFRQ0FBQUFBUUFFQUFrQUFBQUdiR1YyWld4ekFBQUFFQUFBQUFRQUJBQUpBQUFBQldKc1lXTnJBQVFBQ1FBQUFBWmpZV3hwWTI4QUJBQUpBQUFBQlhSaFltSjVBQVFBQ1FBQUFBMTBiM0owYjJselpYTm9aV3hzQUFBRUFnQUFBQUVBQkFBSkFBQUFCV05zWVhOekFBQUFFQUFBQUFFQUJBQUpBQUFBQm1aaFkzUnZjZ0FBQVA0QUFBQU9BQUFBQkVBQXpNek16TXpOUUJRQUFBQUFBQUJBQ1ptWm1abVpta0FLWm1abVptWm1BQUFBRFFBQUFBUUFBQUFCQUFBQUFBQUFBQUVBQUFBQkFBQUVBZ0FBQUFFQUJBQUpBQUFBQlc1aGJXVnpBQUFBRUFBQUFBTUFCQUFKQUFBQUJHTnZZWFFBQkFBSkFBQUFCbmRsYVdkb2RBQUVBQWtBQUFBTWJHbHJaWE5mYzNSeWFXNW5BQUFFQWdBQUFBRUFCQUFKQUFBQUNYSnZkeTV1WVcxbGN3QUFBQTBBQUFBQ2dBQUFBQUFBQUFRQUFBUUNBQUFEL3dBQUFCQUFBQUFCQUFRQUNRQUFBQXBrWVhSaExtWnlZVzFsQUFBQS9nQUFCQUlBQUFBQkFBUUFDUUFBQUFkdmNIUnBiMjV6QUFBQ0V3QUFBQVVBQUFBUUFBQUFBUUFFQUFrQUFBQUJjZ0FBQUJBQUFBQUJBQVFBQ1FBQUFBOTFibTVoYldWa0xXTm9kVzVyTFRVQUFBQUtBQUFBQVFBQUFBRUFBQUFOQUFBQUFRQUFBQVFBQUFBTkFBQUFBUUFBQUFNQUFBUUNBQUFFL3dBQUFCQUFBQUFGQUFRQUNRQUFBQVpsYm1kcGJtVUFCQUFKQUFBQUJXeGhZbVZzQUFRQUNRQUFBQTV5YjNkdVlXMWxjeTV3Y21sdWRBQUVBQWtBQUFBS2NtOTNjeTUwYjNSaGJBQUVBQWtBQUFBS1kyOXNjeTUwYjNSaGJBQUFBUDRBQUFEKyJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["coat"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["likes_string"],"name":[3],"type":["int"],"align":["right"]}],"data":[{"1":"calico","2":"2.1","3":"1","_rn_":"1"},{"1":"black","2":"5.0","3":"0","_rn_":"2"},{"1":"tabby","2":"3.2","3":"1","_rn_":"3"},{"1":"tortoiseshell","2":"3.3","3":"1","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Try redefining cats with age.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2F0cyA9IGNiaW5kKGNhdHMsIGFnZSlcblxuYGBgIn0= -->
+<pre class="r"><code>cats = cbind(cats, age)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZGF0YS5mcmFtZSguLi4sIGNoZWNrLm5hbWVzID0gRkFMU0UpIDogXG4gIGFyZ3VtZW50cyBpbXBseSBkaWZmZXJpbmcgbnVtYmVyIG9mIHJvd3M6IDQsIDNcbiJ9 -->
+<pre><code>Error in data.frame(..., check.names = FALSE) : 
+  arguments imply differing number of rows: 4, 3</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Age didn’t include the 4th tortoiseshell cat. so redefine age.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWdlID0gYygyLDMsNSw5KVxuYWdlXG5cbmBgYCJ9 -->
+<pre class="r"><code>age = c(2,3,5,9)
+age
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDIgMyA1IDlcbiJ9 -->
+<pre><code>[1] 2 3 5 9</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Now retry redefining cats.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6NH0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFRQUFBTU5BQUFBQkFBQUFBSUFBQUFCQUFBQUF3QUFBQVFBQUFRQ0FBQUFBUUFFQUFrQUFBQUdiR1YyWld4ekFBQUFFQUFBQUFRQUJBQUpBQUFBQldKc1lXTnJBQVFBQ1FBQUFBWmpZV3hwWTI4QUJBQUpBQUFBQlhSaFltSjVBQVFBQ1FBQUFBMTBiM0owYjJselpYTm9aV3hzQUFBRUFnQUFBQUVBQkFBSkFBQUFCV05zWVhOekFBQUFFQUFBQUFFQUJBQUpBQUFBQm1aaFkzUnZjZ0FBQVA0QUFBQU9BQUFBQkVBQXpNek16TXpOUUJRQUFBQUFBQUJBQ1ptWm1abVpta0FLWm1abVptWm1BQUFBRFFBQUFBUUFBQUFCQUFBQUFBQUFBQUVBQUFBQkFBQUFEZ0FBQUFSQUFBQUFBQUFBQUVBSUFBQUFBQUFBUUJRQUFBQUFBQUJBSWdBQUFBQUFBQUFBQkFJQUFBQUJBQVFBQ1FBQUFBVnVZVzFsY3dBQUFCQUFBQUFFQUFRQUNRQUFBQVJqYjJGMEFBUUFDUUFBQUFaM1pXbG5hSFFBQkFBSkFBQUFER3hwYTJWelgzTjBjbWx1WndBRUFBa0FBQUFEWVdkbEFBQUVBZ0FBQUFFQUJBQUpBQUFBQ1hKdmR5NXVZVzFsY3dBQUFBMEFBQUFDZ0FBQUFBQUFBQVFBQUFRQ0FBQUQvd0FBQUJBQUFBQUJBQVFBQ1FBQUFBcGtZWFJoTG1aeVlXMWxBQUFBL2dBQUJBSUFBQUFCQUFRQUNRQUFBQWR2Y0hScGIyNXpBQUFDRXdBQUFBVUFBQUFRQUFBQUFRQUVBQWtBQUFBQmNnQUFBQkFBQUFBQkFBUUFDUUFBQUJCMWJtNWhiV1ZrTFdOb2RXNXJMVEV3QUFBQUNnQUFBQUVBQUFBQkFBQUFEUUFBQUFFQUFBQUVBQUFBRFFBQUFBRUFBQUFFQUFBRUFnQUFCUDhBQUFBUUFBQUFCUUFFQUFrQUFBQUdaVzVuYVc1bEFBUUFDUUFBQUFWc1lXSmxiQUFFQUFrQUFBQU9jbTkzYm1GdFpYTXVjSEpwYm5RQUJBQUpBQUFBQ25KdmQzTXVkRzkwWVd3QUJBQUpBQUFBQ21OdmJITXVkRzkwWVd3QUFBRCtBQUFBL2c9PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["coat"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["likes_string"],"name":[3],"type":["int"],"align":["right"]},{"label":["age"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"calico","2":"2.1","3":"1","4":"2","_rn_":"1"},{"1":"black","2":"5.0","3":"0","4":"3","_rn_":"2"},{"1":"tabby","2":"3.2","3":"1","4":"5","_rn_":"3"},{"1":"tortoiseshell","2":"3.3","3":"1","4":"9","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>worked!</p>
+<p>OK Back to …</p>
+</div>
+<div id="change-factor-into-character-1" class="section level1">
+<h1>change factor into character</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RyKGNhdHMpXG5cbmBgYCJ9 -->
+<pre class="r"><code>str(cats)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0NCBvYnMuIG9mICA0IHZhcmlhYmxlczpcbiAkIGNvYXQgICAgICAgIDogRmFjdG9yIHcvIDQgbGV2ZWxzIFwiYmxhY2tcIixcImNhbGljb1wiLC4uOiAyIDEgMyA0XG4gJCB3ZWlnaHQgICAgICA6IG51bSAgMi4xIDUgMy4yIDMuM1xuICQgbGlrZXNfc3RyaW5nOiBpbnQgIDEgMCAxIDFcbiAkIGFnZSAgICAgICAgIDogbnVtICAyIDMgNSA5XG4ifQ== -->
+<pre><code>'data.frame':   4 obs. of  4 variables:
+ $ coat        : Factor w/ 4 levels &quot;black&quot;,&quot;calico&quot;,..: 2 1 3 4
+ $ weight      : num  2.1 5 3.2 3.3
+ $ likes_string: int  1 0 1 1
+ $ age         : num  2 3 5 9</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2F0cyRjb2F0IDwtIGFzLmNoYXJhY3RlcihjYXRzJGNvYXQpXG5zdHIoY2F0cylcblxuYGBgIn0= -->
+<pre class="r"><code>cats$coat &lt;- as.character(cats$coat)
+str(cats)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiJ2RhdGEuZnJhbWUnOlx0NCBvYnMuIG9mICA0IHZhcmlhYmxlczpcbiAkIGNvYXQgICAgICAgIDogY2hyICBcImNhbGljb1wiIFwiYmxhY2tcIiBcInRhYmJ5XCIgXCJ0b3J0b2lzZXNoZWxsXCJcbiAkIHdlaWdodCAgICAgIDogbnVtICAyLjEgNSAzLjIgMy4zXG4gJCBsaWtlc19zdHJpbmc6IGludCAgMSAwIDEgMVxuICQgYWdlICAgICAgICAgOiBudW0gIDIgMyA1IDlcbiJ9 -->
+<pre><code>'data.frame':   4 obs. of  4 variables:
+ $ coat        : chr  &quot;calico&quot; &quot;black&quot; &quot;tabby&quot; &quot;tortoiseshell&quot;
+ $ weight      : num  2.1 5 3.2 3.3
+ $ likes_string: int  1 0 1 1
+ $ age         : num  2 3 5 9</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="challenge-1" class="section level1">
+<h1>Challenge 1</h1>
+<p>Let’s imagine that 1 human year is equivalent to 7 cat years.</p>
+<p>Create a vector called human_age by multiplying cats$age by 7. Convert human_age to a factor. Convert human_age back to a numeric vector using the as.numeric() function. Now divide it by 7 to get the original ages back. Explain what happened.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaHVtYW5fYWdlXG5cbmBgYCJ9 -->
+<pre class="r"><code>human_age
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE0IDIxIDM1IDYzXG4ifQ== -->
+<pre><code>[1] 14 21 35 63</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudHlwZW9mKGh1bWFuX2FnZSlcblxuYGBgIn0= -->
+<pre class="r"><code>typeof(human_age)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiaW50ZWdlclwiXG4ifQ== -->
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaHVtYW5fYWdlID0gYXMubnVtZXJpYyhodW1hbl9hZ2UpXG50eXBlb2YoaHVtYW5fYWdlKVxuXG5gYGAifQ== -->
+<pre class="r"><code>human_age = as.numeric(human_age)
+typeof(human_age)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIFwiZG91YmxlXCJcbiJ9 -->
+<pre><code>[1] &quot;double&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaHVtYW5fYWdlXG5gYGAifQ== -->
+<pre class="r"><code>human_age</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDRcbiJ9 -->
+<pre><code>[1] 1 2 3 4</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="important" class="section level1">
+<h1>important!</h1>
+<p>value of the ages has changed. The ages were changed to factors, which are given a level of 1:4. Converting back to numeric gives the value of the level, not the original age. Need to convert back to character first.</p>
+</div>
+<div id="removing-rows" class="section level1">
+<h1>Removing rows</h1>
+<p>Current cats matrix.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6NH0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFRQUFBQVFBQUFBQkFBRUFBa0FBQUFHWTJGc2FXTnZBQVFBQ1FBQUFBVmliR0ZqYXdBRUFBa0FBQUFGZEdGaVlua0FCQUFKQUFBQURYUnZjblJ2YVhObGMyaGxiR3dBQUFBT0FBQUFCRUFBek16TXpNek5RQlFBQUFBQUFBQkFDWm1abVptWm1rQUtabVptWm1abUFBQUFEUUFBQUFRQUFBQUJBQUFBQUFBQUFBRUFBQUFCQUFBQURnQUFBQVJBQUFBQUFBQUFBRUFJQUFBQUFBQUFRQlFBQUFBQUFBQkFJZ0FBQUFBQUFBQUFCQUlBQUFBQkFBUUFDUUFBQUFWdVlXMWxjd0FBQUJBQUFBQUVBQVFBQ1FBQUFBUmpiMkYwQUFRQUNRQUFBQVozWldsbmFIUUFCQUFKQUFBQURHeHBhMlZ6WDNOMGNtbHVad0FFQUFrQUFBQURZV2RsQUFBRUFnQUFBQUVBQkFBSkFBQUFDWEp2ZHk1dVlXMWxjd0FBQUEwQUFBQUNnQUFBQUFBQUFBUUFBQVFDQUFBQUFRQUVBQWtBQUFBRlkyeGhjM01BQUFBUUFBQUFBUUFFQUFrQUFBQUtaR0YwWVM1bWNtRnRaUUFBQVA0QUFBUUNBQUFBQVFBRUFBa0FBQUFIYjNCMGFXOXVjd0FBQWhNQUFBQUZBQUFBRUFBQUFBRUFCQUFKQUFBQUFYSUFBQUFRQUFBQUFRQUVBQWtBQUFBUWRXNXVZVzFsWkMxamFIVnVheTB5TWdBQUFBb0FBQUFCQUFBQUFRQUFBQTBBQUFBQkFBQUFCQUFBQUEwQUFBQUJBQUFBQkFBQUJBSUFBQUwvQUFBQUVBQUFBQVVBQkFBSkFBQUFCbVZ1WjJsdVpRQUVBQWtBQUFBRmJHRmlaV3dBQkFBSkFBQUFEbkp2ZDI1aGJXVnpMbkJ5YVc1MEFBUUFDUUFBQUFweWIzZHpMblJ2ZEdGc0FBUUFDUUFBQUFwamIyeHpMblJ2ZEdGc0FBQUEvZ0FBQVA0PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["coat"],"name":[1],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["likes_string"],"name":[3],"type":["int"],"align":["right"]},{"label":["age"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"calico","2":"2.1","3":"1","4":"2","_rn_":"1"},{"1":"black","2":"5.0","3":"0","4":"3","_rn_":"2"},{"1":"tabby","2":"3.2","3":"1","4":"5","_rn_":"3"},{"1":"tortoiseshell","2":"3.3","3":"1","4":"9","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Remove 3rd row.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6M30sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFRQUFBQVFBQUFBQXdBRUFBa0FBQUFHWTJGc2FXTnZBQVFBQ1FBQUFBVmliR0ZqYXdBRUFBa0FBQUFOZEc5eWRHOXBjMlZ6YUdWc2JBQUFBQTRBQUFBRFFBRE16TXpNek0xQUZBQUFBQUFBQUVBS1ptWm1abVptQUFBQURRQUFBQU1BQUFBQkFBQUFBQUFBQUFFQUFBQU9BQUFBQTBBQUFBQUFBQUFBUUFnQUFBQUFBQUJBSWdBQUFBQUFBQUFBQkFJQUFBQUJBQVFBQ1FBQUFBVnVZVzFsY3dBQUFCQUFBQUFFQUFRQUNRQUFBQVJqYjJGMEFBUUFDUUFBQUFaM1pXbG5hSFFBQkFBSkFBQUFER3hwYTJWelgzTjBjbWx1WndBRUFBa0FBQUFEWVdkbEFBQUVBZ0FBQUFFQUJBQUpBQUFBQ1hKdmR5NXVZVzFsY3dBQUFBMEFBQUFEQUFBQUFRQUFBQUlBQUFBRUFBQUVBZ0FBQUFFQUJBQUpBQUFBQldOc1lYTnpBQUFBRUFBQUFBRUFCQUFKQUFBQUNtUmhkR0V1Wm5KaGJXVUFBQUQrQUFBRUFnQUFBQUVBQkFBSkFBQUFCMjl3ZEdsdmJuTUFBQUlUQUFBQUJRQUFBQkFBQUFBQkFBUUFDUUFBQUFGeUFBQUFFQUFBQUFFQUJBQUpBQUFBRUhWdWJtRnRaV1F0WTJoMWJtc3RNak1BQUFBS0FBQUFBUUFBQUFFQUFBQU5BQUFBQVFBQUFBTUFBQUFOQUFBQUFRQUFBQVFBQUFRQ0FBQUMvd0FBQUJBQUFBQUZBQVFBQ1FBQUFBWmxibWRwYm1VQUJBQUpBQUFBQld4aFltVnNBQVFBQ1FBQUFBNXliM2R1WVcxbGN5NXdjbWx1ZEFBRUFBa0FBQUFLY205M2N5NTBiM1JoYkFBRUFBa0FBQUFLWTI5c2N5NTBiM1JoYkFBQUFQNEFBQUQrIn0= -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["coat"],"name":[1],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["likes_string"],"name":[3],"type":["int"],"align":["right"]},{"label":["age"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"calico","2":"2.1","3":"1","4":"2","_rn_":"1"},{"1":"black","2":"5.0","3":"0","4":"3","_rn_":"2"},{"1":"tortoiseshell","2":"3.3","3":"1","4":"9","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Can remove any rows with an NA with command “na.omit(cats)”</p>
+</div>
+<div id="remove-columns" class="section level1">
+<h1>Remove columns</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6NH0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFNQUFBQVFBQUFBQkFBRUFBa0FBQUFHWTJGc2FXTnZBQVFBQ1FBQUFBVmliR0ZqYXdBRUFBa0FBQUFGZEdGaVlua0FCQUFKQUFBQURYUnZjblJ2YVhObGMyaGxiR3dBQUFBT0FBQUFCRUFBek16TXpNek5RQlFBQUFBQUFBQkFDWm1abVptWm1rQUtabVptWm1abUFBQUFEZ0FBQUFSQUFBQUFBQUFBQUVBSUFBQUFBQUFBUUJRQUFBQUFBQUJBSWdBQUFBQUFBQUFBQkFJQUFBQUJBQVFBQ1FBQUFBVnVZVzFsY3dBQUFCQUFBQUFEQUFRQUNRQUFBQVJqYjJGMEFBUUFDUUFBQUFaM1pXbG5hSFFBQkFBSkFBQUFBMkZuWlFBQUJBSUFBQUFCQUFRQUNRQUFBQWx5YjNjdWJtRnRaWE1BQUFBTkFBQUFBb0FBQUFBQUFBQUVBQUFFQWdBQUFBRUFCQUFKQUFBQUJXTnNZWE56QUFBQUVBQUFBQUVBQkFBSkFBQUFDbVJoZEdFdVpuSmhiV1VBQUFEK0FBQUVBZ0FBQUFFQUJBQUpBQUFBQjI5d2RHbHZibk1BQUFJVEFBQUFCUUFBQUJBQUFBQUJBQVFBQ1FBQUFBRnlBQUFBRUFBQUFBRUFCQUFKQUFBQUVIVnVibUZ0WldRdFkyaDFibXN0TWpRQUFBQUtBQUFBQVFBQUFBRUFBQUFOQUFBQUFRQUFBQVFBQUFBTkFBQUFBUUFBQUFNQUFBUUNBQUFDL3dBQUFCQUFBQUFGQUFRQUNRQUFBQVpsYm1kcGJtVUFCQUFKQUFBQUJXeGhZbVZzQUFRQUNRQUFBQTV5YjNkdVlXMWxjeTV3Y21sdWRBQUVBQWtBQUFBS2NtOTNjeTUwYjNSaGJBQUVBQWtBQUFBS1kyOXNjeTUwYjNSaGJBQUFBUDRBQUFEKyJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["coat"],"name":[1],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["age"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"calico","2":"2.1","3":"2","_rn_":"1"},{"1":"black","2":"5.0","3":"3","_rn_":"2"},{"1":"tabby","2":"3.2","3":"5","_rn_":"3"},{"1":"tortoiseshell","2":"3.3","3":"9","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Changes were not permanent though. Would have to reassign the changes to “cats”</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6NH0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFRQUFBQVFBQUFBQkFBRUFBa0FBQUFHWTJGc2FXTnZBQVFBQ1FBQUFBVmliR0ZqYXdBRUFBa0FBQUFGZEdGaVlua0FCQUFKQUFBQURYUnZjblJ2YVhObGMyaGxiR3dBQUFBT0FBQUFCRUFBek16TXpNek5RQlFBQUFBQUFBQkFDWm1abVptWm1rQUtabVptWm1abUFBQUFEUUFBQUFRQUFBQUJBQUFBQUFBQUFBRUFBQUFCQUFBQURnQUFBQVJBQUFBQUFBQUFBRUFJQUFBQUFBQUFRQlFBQUFBQUFBQkFJZ0FBQUFBQUFBQUFCQUlBQUFBQkFBUUFDUUFBQUFWdVlXMWxjd0FBQUJBQUFBQUVBQVFBQ1FBQUFBUmpiMkYwQUFRQUNRQUFBQVozWldsbmFIUUFCQUFKQUFBQURHeHBhMlZ6WDNOMGNtbHVad0FFQUFrQUFBQURZV2RsQUFBRUFnQUFBQUVBQkFBSkFBQUFDWEp2ZHk1dVlXMWxjd0FBQUEwQUFBQUNnQUFBQUFBQUFBUUFBQVFDQUFBQUFRQUVBQWtBQUFBRlkyeGhjM01BQUFBUUFBQUFBUUFFQUFrQUFBQUtaR0YwWVM1bWNtRnRaUUFBQVA0QUFBUUNBQUFBQVFBRUFBa0FBQUFIYjNCMGFXOXVjd0FBQWhNQUFBQUZBQUFBRUFBQUFBRUFCQUFKQUFBQUFYSUFBQUFRQUFBQUFRQUVBQWtBQUFBUWRXNXVZVzFsWkMxamFIVnVheTB5TlFBQUFBb0FBQUFCQUFBQUFRQUFBQTBBQUFBQkFBQUFCQUFBQUEwQUFBQUJBQUFBQkFBQUJBSUFBQUwvQUFBQUVBQUFBQVVBQkFBSkFBQUFCbVZ1WjJsdVpRQUVBQWtBQUFBRmJHRmlaV3dBQkFBSkFBQUFEbkp2ZDI1aGJXVnpMbkJ5YVc1MEFBUUFDUUFBQUFweWIzZHpMblJ2ZEdGc0FBUUFDUUFBQUFwamIyeHpMblJ2ZEdGc0FBQUEvZ0FBQVA0PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["coat"],"name":[1],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["likes_string"],"name":[3],"type":["int"],"align":["right"]},{"label":["age"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"calico","2":"2.1","3":"1","4":"2","_rn_":"1"},{"1":"black","2":"5.0","3":"0","4":"3","_rn_":"2"},{"1":"tabby","2":"3.2","3":"1","4":"5","_rn_":"3"},{"1":"tortoiseshell","2":"3.3","3":"1","4":"9","_rn_":"4"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[4]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="challenge-2" class="section level1">
+<h1>Challenge 2</h1>
+<p>You can create a new data frame right from within R with the following syntax:</p>
+<p>df &lt;- data.frame(id = c(“a”, “b”, “c”), x = 1:3, y = c(TRUE, TRUE, FALSE), stringsAsFactors = FALSE) Make a data frame that holds the following information for yourself:</p>
+<p>first name last name lucky number Then use rbind to add an entry for the people sitting beside you. Finally, use cbind to add a column with each person’s answer to the question, “Is it time for coffee break?”</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MX0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFNQUFBQVFBQUFBQVFBRUFBa0FBQUFHUzJWc2MyVjVBQUFBRGdBQUFBRkFQQUFBQUFBQUFBQUFBQW9BQUFBQkFBQUFBUUFBQkFJQUFBQUJBQVFBQ1FBQUFBVnVZVzFsY3dBQUFCQUFBQUFEQUFRQUNRQUFBQUpwWkFBRUFBa0FBQUFNYkhWamEzbGZiblZ0WW1WeUFBUUFDUUFBQUF4amIyWm1aV1ZmWW5KbFlXc0FBQVFDQUFBQUFRQUVBQWtBQUFBSmNtOTNMbTVoYldWekFBQUFEUUFBQUFFQUFBQUJBQUFFQWdBQUFBRUFCQUFKQUFBQUJXTnNZWE56QUFBQUVBQUFBQUVBQkFBSkFBQUFDbVJoZEdFdVpuSmhiV1VBQUFEK0FBQUVBZ0FBQUFFQUJBQUpBQUFBQjI5d2RHbHZibk1BQUFJVEFBQUFCUUFBQUJBQUFBQUJBQVFBQ1FBQUFBRnlBQUFBRUFBQUFBRUFCQUFKQUFBQUVIVnVibUZ0WldRdFkyaDFibXN0TWpjQUFBQUtBQUFBQVFBQUFBQUFBQUFOQUFBQUFRQUFBQUVBQUFBTkFBQUFBUUFBQUFNQUFBUUNBQUFDL3dBQUFCQUFBQUFGQUFRQUNRQUFBQVpsYm1kcGJtVUFCQUFKQUFBQUJXeGhZbVZzQUFRQUNRQUFBQTV5YjNkdVlXMWxjeTV3Y21sdWRBQUVBQWtBQUFBS2NtOTNjeTUwYjNSaGJBQUVBQWtBQUFBS1kyOXNjeTUwYjNSaGJBQUFBUDRBQUFEKyJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["lucky_number"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["coffee_break"],"name":[3],"type":["lgl"],"align":["right"]}],"data":[{"1":"Kelsey","2":"28","3":"TRUE"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6MX0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFNQUFBQVFBQUFBQVFBRUFBa0FBQUFGVkdGc2FXRUFBQUFPQUFBQUFVQWNBQUFBQUFBQUFBQUFDZ0FBQUFFQUFBQUJBQUFFQWdBQUFBRUFCQUFKQUFBQUJXNWhiV1Z6QUFBQUVBQUFBQU1BQkFBSkFBQUFBbWxrQUFRQUNRQUFBQXhzZFdOcmVWOXVkVzFpWlhJQUJBQUpBQUFBREdOdlptWmxaVjlpY21WaGF3QUFCQUlBQUFBQkFBUUFDUUFBQUFseWIzY3VibUZ0WlhNQUFBQU5BQUFBQVFBQUFBRUFBQVFDQUFBQUFRQUVBQWtBQUFBRlkyeGhjM01BQUFBUUFBQUFBUUFFQUFrQUFBQUtaR0YwWVM1bWNtRnRaUUFBQVA0QUFBUUNBQUFBQVFBRUFBa0FBQUFIYjNCMGFXOXVjd0FBQWhNQUFBQUZBQUFBRUFBQUFBRUFCQUFKQUFBQUFYSUFBQUFRQUFBQUFRQUVBQWtBQUFBUWRXNXVZVzFsWkMxamFIVnVheTB5T1FBQUFBb0FBQUFCQUFBQUFBQUFBQTBBQUFBQkFBQUFBUUFBQUEwQUFBQUJBQUFBQXdBQUJBSUFBQUwvQUFBQUVBQUFBQVVBQkFBSkFBQUFCbVZ1WjJsdVpRQUVBQWtBQUFBRmJHRmlaV3dBQkFBSkFBQUFEbkp2ZDI1aGJXVnpMbkJ5YVc1MEFBUUFDUUFBQUFweWIzZHpMblJ2ZEdGc0FBUUFDUUFBQUFwamIyeHpMblJ2ZEdGc0FBQUEvZ0FBQVA0PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["lucky_number"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["coffee_break"],"name":[3],"type":["lgl"],"align":["right"]}],"data":[{"1":"Talia","2":"7","3":"TRUE"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm90aCA9IHJiaW5kKGtlZCwgdG53KVxuYm90aFxuYGBgIn0= -->
+<pre class="r"><code>both = rbind(ked, tnw)
+both</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MywibnJvdyI6Mn0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFNQUFBQVFBQUFBQWdBRUFBa0FBQUFHUzJWc2MyVjVBQVFBQ1FBQUFBVlVZV3hwWVFBQUFBNEFBQUFDUUR3QUFBQUFBQUJBSEFBQUFBQUFBQUFBQUFvQUFBQUNBQUFBQVFBQUFBRUFBQVFDQUFBQUFRQUVBQWtBQUFBRmJtRnRaWE1BQUFBUUFBQUFBd0FFQUFrQUFBQUNhV1FBQkFBSkFBQUFER3gxWTJ0NVgyNTFiV0psY2dBRUFBa0FBQUFNWTI5bVptVmxYMkp5WldGckFBQUVBZ0FBQUFFQUJBQUpBQUFBQ1hKdmR5NXVZVzFsY3dBQUFBMEFBQUFDQUFBQUFRQUFBQUlBQUFRQ0FBQUFBUUFFQUFrQUFBQUZZMnhoYzNNQUFBQVFBQUFBQVFBRUFBa0FBQUFLWkdGMFlTNW1jbUZ0WlFBQUFQNEFBQVFDQUFBQUFRQUVBQWtBQUFBSGIzQjBhVzl1Y3dBQUFoTUFBQUFGQUFBQUVBQUFBQUVBQkFBSkFBQUFBWElBQUFBUUFBQUFBUUFFQUFrQUFBQVFkVzV1WVcxbFpDMWphSFZ1YXkwME1BQUFBQW9BQUFBQkFBQUFBQUFBQUEwQUFBQUJBQUFBQWdBQUFBMEFBQUFCQUFBQUF3QUFCQUlBQUFML0FBQUFFQUFBQUFVQUJBQUpBQUFBQm1WdVoybHVaUUFFQUFrQUFBQUZiR0ZpWld3QUJBQUpBQUFBRG5KdmQyNWhiV1Z6TG5CeWFXNTBBQVFBQ1FBQUFBcHliM2R6TG5SdmRHRnNBQVFBQ1FBQUFBcGpiMnh6TG5SdmRHRnNBQUFBL2dBQUFQND0ifQ== -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["lucky_number"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["coffee_break"],"name":[3],"type":["lgl"],"align":["right"]}],"data":[{"1":"Kelsey","2":"28","3":"TRUE"},{"1":"Talia","2":"7","3":"TRUE"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Add last names.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm90aCA9IGNiaW5kKGJvdGgsIGxhc3RuYW1lcyA9IGMoXCJEZWF0b25cIiwgXCJOZWFsXCIpKVxuYm90aFxuYGBgIn0= -->
+<pre class="r"><code>both = cbind(both, lastnames = c(&quot;Deaton&quot;, &quot;Neal&quot;))
+both</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6NCwibnJvdyI6Mn0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFRQUFBQVFBQUFBQWdBRUFBa0FBQUFHUzJWc2MyVjVBQVFBQ1FBQUFBVlVZV3hwWVFBQUFBNEFBQUFDUUR3QUFBQUFBQUJBSEFBQUFBQUFBQUFBQUFvQUFBQUNBQUFBQVFBQUFBRUFBQU1OQUFBQUFnQUFBQUVBQUFBQ0FBQUVBZ0FBQUFFQUJBQUpBQUFBQm14bGRtVnNjd0FBQUJBQUFBQUNBQVFBQ1FBQUFBWkVaV0YwYjI0QUJBQUpBQUFBQkU1bFlXd0FBQVFDQUFBQUFRQUVBQWtBQUFBRlkyeGhjM01BQUFBUUFBQUFBUUFFQUFrQUFBQUdabUZqZEc5eUFBQUEvZ0FBQkFJQUFBQUJBQVFBQ1FBQUFBVnVZVzFsY3dBQUFCQUFBQUFFQUFRQUNRQUFBQUpwWkFBRUFBa0FBQUFNYkhWamEzbGZiblZ0WW1WeUFBUUFDUUFBQUF4amIyWm1aV1ZmWW5KbFlXc0FCQUFKQUFBQUNXeGhjM1J1WVcxbGN3QUFCQUlBQUFBQkFBUUFDUUFBQUFseWIzY3VibUZ0WlhNQUFBQU5BQUFBQWdBQUFBRUFBQUFDQUFBRUFnQUFBLzhBQUFBUUFBQUFBUUFFQUFrQUFBQUtaR0YwWVM1bWNtRnRaUUFBQVA0QUFBUUNBQUFBQVFBRUFBa0FBQUFIYjNCMGFXOXVjd0FBQWhNQUFBQUZBQUFBRUFBQUFBRUFCQUFKQUFBQUFYSUFBQUFRQUFBQUFRQUVBQWtBQUFBUWRXNXVZVzFsWkMxamFIVnVheTAwTVFBQUFBb0FBQUFCQUFBQUFBQUFBQTBBQUFBQkFBQUFBZ0FBQUEwQUFBQUJBQUFBQkFBQUJBSUFBQVQvQUFBQUVBQUFBQVVBQkFBSkFBQUFCbVZ1WjJsdVpRQUVBQWtBQUFBRmJHRmlaV3dBQkFBSkFBQUFEbkp2ZDI1aGJXVnpMbkJ5YVc1MEFBUUFDUUFBQUFweWIzZHpMblJ2ZEdGc0FBUUFDUUFBQUFwamIyeHpMblJ2ZEdGc0FBQUEvZ0FBQVA0PSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["lucky_number"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["coffee_break"],"name":[3],"type":["lgl"],"align":["right"]},{"label":["lastnames"],"name":[4],"type":["fctr"],"align":["left"]}],"data":[{"1":"Kelsey","2":"28","3":"TRUE","4":"Deaton"},{"1":"Talia","2":"7","3":"TRUE","4":"Neal"}],"options":{"columns":{"min":{},"max":[10],"total":[4]},"rows":{"min":[10],"max":[10],"total":[2]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBMZXNzb24gNSBFeHBsb3JpbmcgRGF0YSBGcmFtZXMiCmF1dGhvcjogS2Vsc2V5IERlYXRvbgpkYXRlOiAyMDE4LTA5LTIxCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KClJ1biBsZXNzb24gNCBzbyB0aGF0IGhpc3RvcnkgaXMgbG9hZGVkLCBiZWNhdXNlIHdlJ3JlIHVzaW5nIHRoZSBzYW1lICJjYXRzIiBtYXRyaXguIAoKI2FkZGluZyBjb2x1bW5zIGFuZCByb3dzCgpgYGB7cn0KYWdlIDwtIGMoMiwgMywgNSkKY2F0cwpgYGAKCmFkZCBuZXcgYWdlIHZlY3RvciB0byBjYXRzIG1hdHJpeC4gbmVlZCB0byBoYXZlIHNhbWUgbnVtYmVyIG9mIGVudHJpZXMgYXMgcm93cy4KCmBgYHtyfQpjYmluZChjYXRzLCBhZ2UpCmBgYAoKYGBge3J9Cm5yb3coY2F0cykKCmxlbmd0aChhZ2UpCmBgYAoKYGBge3J9CmNhdHMkY29hdApgYGAKCmBgYHtyfQpsZXZlbHMoY2F0cyRjb2F0KQpgYGAKCndvdWxkIGdldCBhbiBlcnJvciBpZiB5b3UgdHJpZWQgdG8gYWRkIGFub3RoZXIgcm93IHdpdGhvdXQgbW9kaWZ5aW5nIHRoZSBmYWN0b3IgZmlyc3QKdG8gYWRkIGFub3RoZXIgImxldmVsIiB0byB0aGUgZmFjdG9yICJjb2F0IHR5cGUiIAoKYGBge3J9CmxldmVscyhjYXRzJGNvYXQpID0gYyhsZXZlbHMoY2F0cyRjb2F0KSwgInRvcnRvaXNlc2hlbGwiKQpsZXZlbHMoY2F0cyRjb2F0KQpgYGAKCm5vdyBpdHMgYWRkZWQuIAoKI25vdyB5b3UgY2FuIGFkZCBhbm90aGVyIHJvdyB0byB0aGUgbWF0cml4LiAKCmBgYHtyfQoKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBMZXNzb24gNSBFeHBsb3JpbmcgRGF0YSBGcmFtZXMiCmF1dGhvcjogS2Vsc2V5IERlYXRvbgpkYXRlOiAyMDE4LTA5LTIxCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KClJ1biBsZXNzb24gNCBzbyB0aGF0IGhpc3RvcnkgaXMgbG9hZGVkLCBiZWNhdXNlIHdlJ3JlIHVzaW5nIHRoZSBzYW1lICJjYXRzIiBtYXRyaXguIAoKI2FkZGluZyBjb2x1bW5zIGFuZCByb3dzCgpgYGB7cn0KYWdlIDwtIGMoMiwgMywgNSkKY2F0cwpgYGAKCmFkZCBuZXcgYWdlIHZlY3RvciB0byBjYXRzIG1hdHJpeC4gbmVlZCB0byBoYXZlIHNhbWUgbnVtYmVyIG9mIGVudHJpZXMgYXMgcm93cy4KCmBgYHtyfQpjYmluZChjYXRzLCBhZ2UpCmBgYAoKYGBge3J9Cm5yb3coY2F0cykKCmxlbmd0aChhZ2UpCmBgYAoKYGBge3J9CmNhdHMkY29hdApgYGAKCmBgYHtyfQpsZXZlbHMoY2F0cyRjb2F0KQpgYGAKCndvdWxkIGdldCBhbiBlcnJvciBpZiB5b3UgdHJpZWQgdG8gYWRkIGFub3RoZXIgcm93IHdpdGhvdXQgbW9kaWZ5aW5nIHRoZSBmYWN0b3IgZmlyc3QKdG8gYWRkIGFub3RoZXIgImxldmVsIiB0byB0aGUgZmFjdG9yICJjb2F0IHR5cGUiIAoKYGBge3J9CmxldmVscyhjYXRzJGNvYXQpID0gYyhsZXZlbHMoY2F0cyRjb2F0KSwgInRvcnRvaXNlc2hlbGwiKQpsZXZlbHMoY2F0cyRjb2F0KQpgYGAKCm5vdyBpdHMgYWRkZWQuIAoKI25vdyB5b3UgY2FuIGFkZCBhbm90aGVyIHJvdyB0byB0aGUgbWF0cml4LiAKCmBgYHtyfQpjYXRzID0gcmJpbmQoY2F0cywgbGlzdCgidG9ydG9pc2VzaGVsbCIsIDMuMywgVFJVRSwgOSkpCmNhdHMKYGBgCgojY2hhbmdlIGZhY3RvciBpbnRvIGNoYXJhY3RlcgoKYGBge3J9CnN0cihjYXRzKQpgYGAKCkFnZSB3YXNuJ3Qga2VwdC4uLgoKYGBge3J9Cm5jb2woY2F0cykKYGBgCgpgYGB7cn0KY2F0cwpgYGAKClRyeSByZWRlZmluaW5nIGNhdHMgd2l0aCBhZ2UuIAoKYGBge3J9CmNhdHMgPSBjYmluZChjYXRzLCBhZ2UpCmBgYAoKQWdlIGRpZG4ndCBpbmNsdWRlIHRoZSA0dGggdG9ydG9pc2VzaGVsbCBjYXQuIHNvIHJlZGVmaW5lIGFnZS4gCgpgYGB7cn0KYWdlID0gYygyLDMsNSw5KQphZ2UKYGBgCgpOb3cgcmV0cnkgcmVkZWZpbmluZyBjYXRzLiAKCmBgYHtyfQpjYXRzID0gY2JpbmQoY2F0cywgYWdlKQpjYXRzCmBgYAoKd29ya2VkIQoKT0sgQmFjayB0byAuLi4KCiNjaGFuZ2UgZmFjdG9yIGludG8gY2hhcmFjdGVyCgpgYGB7cn0Kc3RyKGNhdHMpCmBgYAoKYGBge3J9CmNhdHMkY29hdCA8LSBhcy5jaGFyYWN0ZXIoY2F0cyRjb2F0KQpzdHIoY2F0cykKYGBgCgojQ2hhbGxlbmdlIDEKCkxldOKAmXMgaW1hZ2luZSB0aGF0IDEgaHVtYW4geWVhciBpcyBlcXVpdmFsZW50IHRvIDcgY2F0IHllYXJzLgoKQ3JlYXRlIGEgdmVjdG9yIGNhbGxlZCBodW1hbl9hZ2UgYnkgbXVsdGlwbHlpbmcgY2F0cyRhZ2UgYnkgNy4KQ29udmVydCBodW1hbl9hZ2UgdG8gYSBmYWN0b3IuCkNvbnZlcnQgaHVtYW5fYWdlIGJhY2sgdG8gYSBudW1lcmljIHZlY3RvciB1c2luZyB0aGUgYXMubnVtZXJpYygpIGZ1bmN0aW9uLiBOb3cgZGl2aWRlIGl0IGJ5IDcgdG8gZ2V0IHRoZSBvcmlnaW5hbCBhZ2VzIGJhY2suIEV4cGxhaW4gd2hhdCBoYXBwZW5lZC4KCgpgYGB7cn0KaHVtYW5fYWdlID0gY2F0cyRhZ2UgKiA3Cmh1bWFuX2FnZQpgYGAKCmBgYHtyfQpodW1hbl9hZ2UgPSBhcy5mYWN0b3IoaHVtYW5fYWdlKQp0eXBlb2YoaHVtYW5fYWdlKQpgYGAKCmBgYHtyfQpodW1hbl9hZ2UgPSBhcy5udW1lcmljKGh1bWFuX2FnZSkKdHlwZW9mKGh1bWFuX2FnZSkKaHVtYW5fYWdlCmBgYAoKI2ltcG9ydGFudCEKCnZhbHVlIG9mIHRoZSBhZ2VzIGhhcyBjaGFuZ2VkLiBUaGUgYWdlcyB3ZXJlIGNoYW5nZWQgdG8gZmFjdG9ycywgd2hpY2ggYXJlIGdpdmVuIGEgbGV2ZWwgb2YgMTo0LiBDb252ZXJ0aW5nIGJhY2sgdG8gbnVtZXJpYyBnaXZlcyB0aGUgdmFsdWUgb2YgdGhlIGxldmVsLCBub3QgdGhlIG9yaWdpbmFsIGFnZS4gTmVlZCB0byBjb252ZXJ0IGJhY2sgdG8gY2hhcmFjdGVyIGZpcnN0LiAKCiNSZW1vdmluZyByb3dzCgpDdXJyZW50IGNhdHMgbWF0cml4LiAKCmBgYHtyfQpjYXRzCmBgYAoKUmVtb3ZlIDNyZCByb3cuIAoKYGBge3J9CmNhdHNbLTMsIF0KYGBgCgpDYW4gcmVtb3ZlIGFueSByb3dzIHdpdGggYW4gTkEgd2l0aCBjb21tYW5kICJuYS5vbWl0KGNhdHMpIgoKI1JlbW92ZSBjb2x1bW5zCgpgYGB7cn0KY2F0c1sgLC0zXQpgYGAKCkNoYW5nZXMgd2VyZSBub3QgcGVybWFuZW50IHRob3VnaC4gV291bGQgaGF2ZSB0byByZWFzc2lnbiB0aGUgY2hhbmdlcyB0byAiY2F0cyIKCmBgYHtyfQpjYXRzCmBgYAoKCiNDaGFsbGVuZ2UgMgoKWW91IGNhbiBjcmVhdGUgYSBuZXcgZGF0YSBmcmFtZSByaWdodCBmcm9tIHdpdGhpbiBSIHdpdGggdGhlIGZvbGxvd2luZyBzeW50YXg6CgpkZiA8LSBkYXRhLmZyYW1lKGlkID0gYygiYSIsICJiIiwgImMiKSwKICAgICAgICAgICAgICAgICB4ID0gMTozLAogICAgICAgICAgICAgICAgIHkgPSBjKFRSVUUsIFRSVUUsIEZBTFNFKSwKICAgICAgICAgICAgICAgICBzdHJpbmdzQXNGYWN0b3JzID0gRkFMU0UpCk1ha2UgYSBkYXRhIGZyYW1lIHRoYXQgaG9sZHMgdGhlIGZvbGxvd2luZyBpbmZvcm1hdGlvbiBmb3IgeW91cnNlbGY6CgpmaXJzdCBuYW1lCmxhc3QgbmFtZQpsdWNreSBudW1iZXIKVGhlbiB1c2UgcmJpbmQgdG8gYWRkIGFuIGVudHJ5IGZvciB0aGUgcGVvcGxlIHNpdHRpbmcgYmVzaWRlIHlvdS4gRmluYWxseSwgdXNlIGNiaW5kIHRvIGFkZCBhIGNvbHVtbiB3aXRoIGVhY2ggcGVyc29u4oCZcyBhbnN3ZXIgdG8gdGhlIHF1ZXN0aW9uLCDigJxJcyBpdCB0aW1lIGZvciBjb2ZmZWUgYnJlYWs/4oCdCgoKYGBge3J9CmtlZCA9IGRhdGEuZnJhbWUoaWQgPSBjKCJLZWxzZXkiKSwKICAgICAgICAgICAgICAgICAgbHVja3lfbnVtYmVyID0gMjgsCiAgICAgICAgICAgICAgICAgIGNvZmZlZV9icmVhayA9IFRSVUUsCiAgICAgICAgICAgICAgICAgIHN0cmluZ3NBc0ZhY3RvcnMgPSBGQUxTRSkKa2VkCmBgYAoKYGBge3J9CnRudyA9IGRhdGEuZnJhbWUoaWQgPSBjKCJUYWxpYSIpLAogICAgICAgICAgICAgICAgICAgICAgICBsdWNreV9udW1iZXIgPSA3LAogICAgICAgICAgICAgICAgICAgICAgICBjb2ZmZWVfYnJlYWsgPSBUUlVFLCAKICAgICAgICAgICAgICAgICAgICAgICAgc3RyaW5nc0FzRmFjdG9ycyA9IEZBTFNFKQp0bncKYGBgCgpgYGB7cn0KYm90aCA9IHJiaW5kKGtlZCwgdG53KQpib3RoCmBgYAoKQWRkIGxhc3QgbmFtZXMuCgpgYGB7cn0KYm90aCA9IGNiaW5kKGJvdGgsIGxhc3RuYW1lcyA9IGMoIkRlYXRvbiIsICJOZWFsIikpCmJvdGgKYGBgCgoK</div>
 
 
 
