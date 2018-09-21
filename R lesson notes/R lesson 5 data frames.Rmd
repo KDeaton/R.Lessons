@@ -1,0 +1,52 @@
+---
+title: "R Lesson 5 Exploring Data Frames"
+author: Kelsey Deaton
+date: 2018-09-21
+output: html_notebook
+---
+
+Run lesson 4 so that history is loaded, because we're using the same "cats" matrix. 
+
+#adding columns and rows
+
+```{r}
+age <- c(2, 3, 5)
+cats
+```
+
+add new age vector to cats matrix. need to have same number of entries as rows.
+
+```{r}
+cbind(cats, age)
+```
+
+```{r}
+nrow(cats)
+
+length(age)
+```
+
+```{r}
+cats$coat
+```
+
+```{r}
+levels(cats$coat)
+```
+
+would get an error if you tried to add another row without modifying the factor first
+to add another "level" to the factor "coat type" 
+
+```{r}
+levels(cats$coat) = c(levels(cats$coat), "tortoiseshell")
+levels(cats$coat)
+```
+
+now its added. 
+
+#now you can add another row to the matrix. 
+
+```{r}
+
+```
+
