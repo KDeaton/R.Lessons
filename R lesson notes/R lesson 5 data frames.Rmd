@@ -204,4 +204,53 @@ both = cbind(both, lastnames = c("Deaton", "Neal"))
 both
 ```
 
+#Realistic Example
+
+```{r}
+gapminder = read.csv("~/R.Lessons/data/gapminder_data.csv")
+```
+
+Went over to Files and clicked on "gapminder_data" then clicked "Import Dataset"
+
+```{r}
+str(gapminder)
+```
+
+Looks like I have different data... SF has "
+'data.frame':	1704 obs. of  6 variables:
+ $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+ $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+ $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+ $ gdpPercap: num  779 821 853 836 740 ...
+  "
+  
+```{r}
+typeof(gapminder$year)
+```
+
+```{r}
+typeof(gapminder$country)
+```
+
+#Challenge 3
+
+It’s good practice to also check the last few lines of your data and some in the middle. How would you do this?
+
+Searching for ones specifically in the middle isn’t too hard but we could simply ask for a few lines at random. How would you code this?
+
+Tail:
+```{r}
+tail(gapminder)
+```
+
+#Challenge 4
+
+Go to file -> new file -> R script, and write an R script to load in the gapminder dataset. Put it in the scripts/ directory and add it to version control.
+
+Run the script using the source function, using the file path as its argument (or by pressing the “source” button in RStudio).
+
+Didn't work.
+
 
