@@ -244,15 +244,245 @@ x</code></pre>
 <p>output: a b c d e 5.4 6.2 7.1 4.8 7.5</p>
 <p>Come up with at least 2 different commands that will produce the following output:</p>
 <p>b c d 6.2 7.1 4.8</p>
-<p>After you find 2 different commands, compare notes with your neighbour. Did you have different strategies?</p>
+<p>After you find 2 d ifferent commands, compare notes with your neighbour. Did you have different strategies?</p>
+<p>Attempt 1</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueSA9IGMoNi4yLCA3LjEsIDQuOClcbm5hbWVzKHkpID0gYygnYicsICdjJywgJ2QnKVxucHJpbnQoeSlcbmBgYCJ9 -->
+<pre class="r"><code>y = c(6.2, 7.1, 4.8)
+names(y) = c('b', 'c', 'd')
+print(y)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBiICAgYyAgIGQgXG42LjIgNy4xIDQuOCBcbiJ9 -->
+<pre><code>  b   c   d 
+6.2 7.1 4.8 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Attempt 2</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubnVtYmVycyA9IGMoNi4yLCA3LjEsIDQuOClcbnRpdGxlcyA9IGMoXCJiXCIsXCJjXCIsXCJkXCIpXG5tYXRyaXggPSBtYXRyaXgoYyh0aXRsZXMsIG51bWJlcnMpLCBucm93PTIsIGJ5cm93PVRSVUUpXG5tYXRyaXggXG5gYGAifQ== -->
+<pre class="r"><code>numbers = c(6.2, 7.1, 4.8)
+titles = c(&quot;b&quot;,&quot;c&quot;,&quot;d&quot;)
+matrix = matrix(c(titles, numbers), nrow=2, byrow=TRUE)
+matrix </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBbLDFdICBbLDJdICBbLDNdIFxuWzEsXSBcImJcIiAgIFwiY1wiICAgXCJkXCIgIFxuWzIsXSBcIjYuMlwiIFwiNy4xXCIgXCI0LjhcIlxuIn0= -->
+<pre><code>     [,1]  [,2]  [,3] 
+[1,] &quot;b&quot;   &quot;c&quot;   &quot;d&quot;  
+[2,] &quot;6.2&quot; &quot;7.1&quot; &quot;4.8&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Worked, more or less, but not what they were going for. Use previous matrix (x) with (-)</p>
+<p>Other option</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueFstYygxLDUpXVxuYGBgIn0= -->
+<pre class="r"><code>x[-c(1,5)]</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBiICAgYyAgIGQgXG42LjIgNy4xIDQuOCBcbiJ9 -->
+<pre><code>  b   c   d 
+6.2 7.1 4.8 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="subsetting-by-name-or-logical-operations" class="section level1">
+<h1>Subsetting by name or logical operations</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueFtjKFwiYVwiLCBcImVcIildXG5cbmBgYCJ9 -->
+<pre class="r"><code>x[c(&quot;a&quot;, &quot;e&quot;)]
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBhICAgZSBcbjUuNCA3LjUgXG4ifQ== -->
+<pre><code>  a   e 
+5.4 7.5 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="challenge-2" class="section level1">
+<h1>Challenge 2</h1>
+<p>Given the following code:</p>
+<p>x &lt;- c(5.4, 6.2, 7.1, 4.8, 7.5) names(x) &lt;- c(‘a’, ‘b’, ‘c’, ‘d’, ‘e’) print(x)</p>
+<p>a b c d e 5.4 6.2 7.1 4.8 7.5</p>
+<p>Write a subsetting command to return the values in x that are greater than 4 and less than 7.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueFtjKHggPiA0LCB4IDwgNyldXG5cbmBgYCJ9 -->
+<pre class="r"><code>x[c(x &gt; 4, x &lt; 7)]
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgYSAgICBiICAgIGMgICAgZCAgICBlIDxOQT4gPE5BPiA8TkE+IFxuIDUuNCAgNi4yICA3LjEgIDQuOCAgNy41ICAgTkEgICBOQSAgIE5BIFxuIn0= -->
+<pre><code>   a    b    c    d    e &lt;NA&gt; &lt;NA&gt; &lt;NA&gt; 
+ 5.4  6.2  7.1  4.8  7.5   NA   NA   NA </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Why didn’t this work? Where are NA’s from?</p>
+<p>Instead, answer created a subset.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueF9zdWJzZXQgPC0geFt4PDcgJiB4PjRdXG5wcmludCh4X3N1YnNldClcbmBgYCJ9 -->
+<pre class="r"><code>x_subset &lt;- x[x&lt;7 &amp; x&gt;4]
+print(x_subset)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBhICAgYiAgIGQgXG41LjQgNi4yIDQuOCBcbiJ9 -->
+<pre><code>  a   b   d 
+5.4 6.2 4.8 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="challenge-3" class="section level1">
+<h1>Challenge 3</h1>
+<p>Selecting elements of a vector that match any of a list of components is a very common data analysis task. For example, the gapminder data set contains country and continent variables, but no information between these two scales. Suppose we want to pull out information from southeast Asia: how do we set up an operation to produce a logical vector that is TRUE for all of the countries in southeast Asia and FALSE otherwise?</p>
+<p>Suppose you have these data:</p>
+<p>seAsia &lt;- c(“Myanmar”,“Thailand”,“Cambodia”,“Vietnam”,“Laos”) ## read in the gapminder data that we downloaded in episode 2 gapminder &lt;- read.csv(“data/gapminder_data.csv”, header=TRUE) ## extract the <code>country</code> column from a data frame (we’ll see this later); ## convert from a factor to a character; ## and get just the non-repeated elements countries &lt;- unique(as.character(gapminder$country))</p>
+<p>There’s a wrong way (using only ==), which will give you a warning; a clunky way (using the logical operators == and |); and an elegant way (using %in%). See whether you can come up with all three and explain how they (don’t) work.</p>
+<p>gapminder data looks fine now, must have fixed when I reuploaded it.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2VBc2lhIDwtIGMoXCJNeWFubWFyXCIsXCJUaGFpbGFuZFwiLFwiQ2FtYm9kaWFcIixcIlZpZXRuYW1cIixcIkxhb3NcIilcbiMjIHJlYWQgaW4gdGhlIGdhcG1pbmRlciBkYXRhIHRoYXQgd2UgZG93bmxvYWRlZCBpbiBlcGlzb2RlIDJcbiMjIGV4dHJhY3QgdGhlIGBjb3VudHJ5YCBjb2x1bW4gZnJvbSBhIGRhdGEgZnJhbWUgKHdlJ2xsIHNlZSB0aGlzIGxhdGVyKTtcbiMjIGNvbnZlcnQgZnJvbSBhIGZhY3RvciB0byBhIGNoYXJhY3RlcjtcbiMjIGFuZCBnZXQganVzdCB0aGUgbm9uLXJlcGVhdGVkIGVsZW1lbnRzXG5jb3VudHJpZXMgPC0gdW5pcXVlKGFzLmNoYXJhY3RlcihnYXBtaW5kZXIkY291bnRyeSkpXG5jb3VudHJpZXMgJWluJSBzZUFzaWFcbmBgYCJ9 -->
+<pre class="r"><code>seAsia &lt;- c(&quot;Myanmar&quot;,&quot;Thailand&quot;,&quot;Cambodia&quot;,&quot;Vietnam&quot;,&quot;Laos&quot;)
+## read in the gapminder data that we downloaded in episode 2
+## extract the `country` column from a data frame (we'll see this later);
+## convert from a factor to a character;
+## and get just the non-repeated elements
+countries &lt;- unique(as.character(gapminder$country))
+countries %in% seAsia</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICBbMV0gRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0VcbiBbMTJdIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFXG4gWzIzXSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRVxuIFszNF0gRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0VcbiBbNDVdIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFXG4gWzU2XSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRVxuIFs2N10gRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0VcbiBbNzhdIEZBTFNFIEZBTFNFIEZBTFNFICBUUlVFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFXG4gWzg5XSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSAgVFJVRSBGQUxTRSBGQUxTRVxuWzEwMF0gRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgIFRSVUUgIFRSVUUgRkFMU0UgRkFMU0VcblsxMTFdIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFIEZBTFNFXG5bMTIyXSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRSBGQUxTRVxuWzEzM10gRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0UgRkFMU0VcbiJ9 -->
+<pre><code>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [56] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [67] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [78] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [89] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+[100] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+[111] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[122] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Not sure what I should have gotten here. (?)</p>
+</div>
+<div id="challenge-4" class="section level1">
+<h1>Challenge 4</h1>
+<p>Given the following code:</p>
+<p>m &lt;- matrix(1:18, nrow=3, ncol=6) print(m)</p>
+<pre><code> [,1] [,2] [,3] [,4] [,5] [,6]</code></pre>
+<p>[1,] 1 4 7 10 13 16 [2,] 2 5 8 11 14 17 [3,] 3 6 9 12 15 18</p>
+<p>Which of the following commands will extract the values 11 and 14?</p>
+<p>A. m[2,4,2,5]</p>
+<p>B. m[2:5]</p>
+<p>C. m[4:5,2]</p>
+<p>D. m[2,c(4,5)]</p>
+<p>I choose D. Want row 2, combined columns 4 and 5.</p>
+<p>Correct!</p>
+</div>
+<div id="challenge-5" class="section level1">
+<h1>Challenge 5</h1>
+<p>Given the following list:</p>
+<p>xlist &lt;- list(a = “Software Carpentry”, b = 1:10, data = head(iris))</p>
+<p>Using your knowledge of both list and vector subsetting, extract the number 2 from xlist. Hint: the number 2 is contained within the “b” item in the list.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueGxpc3RbW2JbMl1dXVxuXG5gYGAifQ== -->
+<pre class="r"><code>xlist[[b[2]]]
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IG9iamVjdCAnYicgbm90IGZvdW5kXG4ifQ== -->
+<pre><code>Error: object 'b' not found</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueGxpc3RbWzJbMl1dXVxuXG5gYGAifQ== -->
+<pre class="r"><code>xlist[[2[2]]]
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTlVMTFxuIn0= -->
+<pre><code>NULL</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>No again. Answer:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueGxpc3QkYlsyXVxuXG5gYGAifQ== -->
+<pre class="r"><code>xlist$b[2]
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>or:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxueGxpc3RbWzJdXVsyXVxuXG5gYGAifQ== -->
+<pre class="r"><code>xlist[[2]][2]
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDJcbiJ9 -->
+<pre><code>[1] 2</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="challenge-6" class="section level1">
+<h1>Challenge 6</h1>
+<p>Given a linear model:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kIDwtIGFvdihwb3AgfiBsaWZlRXhwLCBkYXRhPWdhcG1pbmRlcilcblxuYGBgIn0= -->
+<pre class="r"><code>mod &lt;- aov(pop ~ lifeExp, data=gapminder)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZXZhbChwcmVkdmFycywgZGF0YSwgZW52KSA6IG9iamVjdCAncG9wJyBub3QgZm91bmRcbiJ9 -->
+<pre><code>Error in eval(predvars, data, env) : object 'pop' not found</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Extract the residual degrees of freedom (hint: attributes() will help you)</p>
+<p>Didn’t attempt since having an issue with gapminder data again.</p>
+</div>
+<div id="data-frames" class="section level1">
+<h1>Data frames</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MSwibnJvdyI6Nn0sInJkZiI6IlVrUllNZ3BZQ2dBQUFBSUFBd1FCQUFJREFBQUFCQUlBQUFBQkFBUUFDUUFBQUFGNEFBQURFd0FBQUFFQUFBQU9BQUFBQmtDaklnUXcwd2FqUUt1Qk9IV3o0VU5Ba0pzQ1FMZUFORUNLbWUzYkxPSGdRSUQ2Q3J2ellMVkFkVFMrUzNwUjFnQUFCQUlBQUFBQkFBUUFDUUFBQUFWdVlXMWxjd0FBQUJBQUFBQUJBQVFBQ1FBQUFBNW5aSEJRWlhKallYQmZNVGsxTWdBQUJBSUFBQUFCQUFRQUNRQUFBQWx5YjNjdWJtRnRaWE1BQUFBTkFBQUFBb0FBQUFBQUFBQUdBQUFFQWdBQUFBRUFCQUFKQUFBQUJXTnNZWE56QUFBQUVBQUFBQUVBQkFBSkFBQUFDbVJoZEdFdVpuSmhiV1VBQUFEK0FBQUVBZ0FBQUFFQUJBQUpBQUFBQjI5d2RHbHZibk1BQUFJVEFBQUFCUUFBQUJBQUFBQUJBQVFBQ1FBQUFBRnlBQUFBRUFBQUFBRUFCQUFKQUFBQUVIVnVibUZ0WldRdFkyaDFibXN0TWpjQUFBQUtBQUFBQVFBQUFBRUFBQUFOQUFBQUFRQUFBQVlBQUFBTkFBQUFBUUFBQUFFQUFBUUNBQUFDL3dBQUFCQUFBQUFGQUFRQUNRQUFBQVpsYm1kcGJtVUFCQUFKQUFBQUJXeGhZbVZzQUFRQUNRQUFBQTV5YjNkdVlXMWxjeTV3Y21sdWRBQUVBQWtBQUFBS2NtOTNjeTUwYjNSaGJBQUVBQWtBQUFBS1kyOXNjeTUwYjNSaGJBQUFBUDRBQUFEKyJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["gdpPercap_1952"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"2449.0082","_rn_":"1"},{"1":"3520.6103","_rn_":"2"},{"1":"1062.7522","_rn_":"3"},{"1":"851.2411","_rn_":"4"},{"1":"543.2552","_rn_":"5"},{"1":"339.2965","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[6]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YTEgPSByZWFkLmNzdih+L2RhdGEvZ2FwbWluZGVyX2RhdGEuY3N2KVxuXG5gYGAifQ== -->
+<pre class="r"><code>data1 = read.csv(~/data/gapminder_data.csv)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgJy8nIGluIFwiZGF0YTEgPSByZWFkLmNzdih+L1wiXG4ifQ== -->
+<pre><code>Error: unexpected '/' in &quot;data1 = read.csv(~/&quot;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUi4gTGVzc29uIFdlZWsgMi4xIFN1YnNldHRpbmcgRGF0YSIKYXV0aG9yOiBLZWxzZXkgRGVhdG9uCmRhdGU6IDIwMTgtMDktMjcKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKRmlyc3QsIGxldCdzIGNyZWF0ZSBhIG1hdHJpeC4gCgpgYGB7cn0KeCA8LSBjKDUuNCwgNi4yLCA3LjEsIDQuOCwgNy41KQpuYW1lcyh4KSA8LSBjKCdhJywgJ2InLCAnYycsICdkJywgJ2UnKQp4CmBgYAoKI0FjY2Vzc2luZyBlbGVtZW50cyB1c2luZyBpbmRpY2VzCgpgYGB7cn0KeFsxXQp4WzRdCmBgYAoKVG8gYXNrIGZvciBtdWx0aXBsZSBlbGVtZW50cywgbmVlZCB0byB1c2UgYygpCgpgYGB7cn0KeFtjKDEsNCldCmBgYAp0byBsZWF2ZSBvdXQgYygpIGRvZXNuJ3Qgd29yay4KYGBge3J9CnhbMSw0XQpgYGAKCiNDaGFsbGVuZ2UgMQoKR2l2ZW4gdGhlIGZvbGxvd2luZyBjb2RlOgoKeCA8LSBjKDUuNCwgNi4yLCA3LjEsIDQuOCwgNy41KQpuYW1lcyh4KSA8LSBjKCdhJywgJ2InLCAnYycsICdkJywgJ2UnKQpwcmludCh4KQoKb3V0cHV0OgogIGEgICBiICAgYyAgIGQgICBlIAo1LjQgNi4yIDcuMSA0LjggNy41IAoKQ29tZSB1cCB3aXRoIGF0IGxlYXN0IDIgZGlmZmVyZW50IGNvbW1hbmRzIHRoYXQgd2lsbCBwcm9kdWNlIHRoZSBmb2xsb3dpbmcgb3V0cHV0OgoKICBiICAgYyAgIGQgCjYuMiA3LjEgNC44IAoKQWZ0ZXIgeW91IGZpbmQgMiBkaWZmZXJlbnQgY29tbWFuZHMsIGNvbXBhcmUgbm90ZXMgd2l0aCB5b3VyIG5laWdoYm91ci4gRGlkIHlvdSBoYXZlIGRpZmZlcmVudCBzdHJhdGVnaWVzPwoKYGBge3J9CgpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUi4gTGVzc29uIFdlZWsgMi4xIFN1YnNldHRpbmcgRGF0YSIKYXV0aG9yOiBLZWxzZXkgRGVhdG9uCmRhdGU6IDIwMTgtMDktMjcKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKRmlyc3QsIGxldCdzIGNyZWF0ZSBhIG1hdHJpeC4gCgpgYGB7cn0KeCA8LSBjKDUuNCwgNi4yLCA3LjEsIDQuOCwgNy41KQpuYW1lcyh4KSA8LSBjKCdhJywgJ2InLCAnYycsICdkJywgJ2UnKQp4CmBgYAoKI0FjY2Vzc2luZyBlbGVtZW50cyB1c2luZyBpbmRpY2VzCgpgYGB7cn0KeFsxXQp4WzRdCmBgYAoKVG8gYXNrIGZvciBtdWx0aXBsZSBlbGVtZW50cywgbmVlZCB0byB1c2UgYygpCgpgYGB7cn0KeFtjKDEsNCldCmBgYAp0byBsZWF2ZSBvdXQgYygpIGRvZXNuJ3Qgd29yay4KYGBge3J9CnhbMSw0XQpgYGAKCiNDaGFsbGVuZ2UgMQoKR2l2ZW4gdGhlIGZvbGxvd2luZyBjb2RlOgoKeCA8LSBjKDUuNCwgNi4yLCA3LjEsIDQuOCwgNy41KQpuYW1lcyh4KSA8LSBjKCdhJywgJ2InLCAnYycsICdkJywgJ2UnKQpwcmludCh4KQoKb3V0cHV0OgogIGEgICBiICAgYyAgIGQgICBlIAo1LjQgNi4yIDcuMSA0LjggNy41IAoKQ29tZSB1cCB3aXRoIGF0IGxlYXN0IDIgZGlmZmVyZW50IGNvbW1hbmRzIHRoYXQgd2lsbCBwcm9kdWNlIHRoZSBmb2xsb3dpbmcgb3V0cHV0OgoKICBiICAgYyAgIGQgCjYuMiA3LjEgNC44IAoKQWZ0ZXIgeW91IGZpbmQgMiBkCmlmZmVyZW50IGNvbW1hbmRzLCBjb21wYXJlIG5vdGVzIHdpdGggeW91ciBuZWlnaGJvdXIuIERpZCB5b3UgaGF2ZSBkaWZmZXJlbnQgc3RyYXRlZ2llcz8KCkF0dGVtcHQgMQpgYGB7cn0KeSA9IGMoNi4yLCA3LjEsIDQuOCkKbmFtZXMoeSkgPSBjKCdiJywgJ2MnLCAnZCcpCnByaW50KHkpCmBgYAoKQXR0ZW1wdCAyCmBgYHtyfQpudW1iZXJzID0gYyg2LjIsIDcuMSwgNC44KQp0aXRsZXMgPSBjKCJiIiwiYyIsImQiKQptYXRyaXggPSBtYXRyaXgoYyh0aXRsZXMsIG51bWJlcnMpLCBucm93PTIsIGJ5cm93PVRSVUUpCm1hdHJpeCAKYGBgCgpXb3JrZWQsIG1vcmUgb3IgbGVzcywgYnV0IG5vdCB3aGF0IHRoZXkgd2VyZSBnb2luZyBmb3IuIFVzZSBwcmV2aW91cyBtYXRyaXggKHgpIHdpdGggKC0pCgpPdGhlciBvcHRpb24KCmBgYHtyfQp4Wy1jKDEsNSldCmBgYAoKI1N1YnNldHRpbmcgYnkgbmFtZSBvciBsb2dpY2FsIG9wZXJhdGlvbnMKCmBgYHtyfQp4W2MoImEiLCAiZSIpXQpgYGAKCiNDaGFsbGVuZ2UgMgoKR2l2ZW4gdGhlIGZvbGxvd2luZyBjb2RlOgoKeCA8LSBjKDUuNCwgNi4yLCA3LjEsIDQuOCwgNy41KQpuYW1lcyh4KSA8LSBjKCdhJywgJ2InLCAnYycsICdkJywgJ2UnKQpwcmludCh4KQoKICBhICAgYiAgIGMgICBkICAgZSAKNS40IDYuMiA3LjEgNC44IDcuNSAKCldyaXRlIGEgc3Vic2V0dGluZyBjb21tYW5kIHRvIHJldHVybiB0aGUgdmFsdWVzIGluIHggdGhhdCBhcmUgZ3JlYXRlciB0aGFuIDQgYW5kIGxlc3MgdGhhbiA3LgoKYGBge3J9CnhbYyh4ID4gNCwgeCA8IDcpXQpgYGAKCldoeSBkaWRuJ3QgdGhpcyB3b3JrPyBXaGVyZSBhcmUgTkEncyBmcm9tPwoKSW5zdGVhZCwgYW5zd2VyIGNyZWF0ZWQgYSBzdWJzZXQuIAoKYGBge3J9Cnhfc3Vic2V0IDwtIHhbeDw3ICYgeD40XQpwcmludCh4X3N1YnNldCkKYGBgCgojQ2hhbGxlbmdlIDMgCgpTZWxlY3RpbmcgZWxlbWVudHMgb2YgYSB2ZWN0b3IgdGhhdCBtYXRjaCBhbnkgb2YgYSBsaXN0IG9mIGNvbXBvbmVudHMgaXMgYSB2ZXJ5IGNvbW1vbiBkYXRhIGFuYWx5c2lzIHRhc2suIEZvciBleGFtcGxlLCB0aGUgZ2FwbWluZGVyIGRhdGEgc2V0IGNvbnRhaW5zIGNvdW50cnkgYW5kIGNvbnRpbmVudCB2YXJpYWJsZXMsIGJ1dCBubyBpbmZvcm1hdGlvbiBiZXR3ZWVuIHRoZXNlIHR3byBzY2FsZXMuIFN1cHBvc2Ugd2Ugd2FudCB0byBwdWxsIG91dCBpbmZvcm1hdGlvbiBmcm9tIHNvdXRoZWFzdCBBc2lhOiBob3cgZG8gd2Ugc2V0IHVwIGFuIG9wZXJhdGlvbiB0byBwcm9kdWNlIGEgbG9naWNhbCB2ZWN0b3IgdGhhdCBpcyBUUlVFIGZvciBhbGwgb2YgdGhlIGNvdW50cmllcyBpbiBzb3V0aGVhc3QgQXNpYSBhbmQgRkFMU0Ugb3RoZXJ3aXNlPwoKU3VwcG9zZSB5b3UgaGF2ZSB0aGVzZSBkYXRhOgoKc2VBc2lhIDwtIGMoIk15YW5tYXIiLCJUaGFpbGFuZCIsIkNhbWJvZGlhIiwiVmlldG5hbSIsIkxhb3MiKQojIyByZWFkIGluIHRoZSBnYXBtaW5kZXIgZGF0YSB0aGF0IHdlIGRvd25sb2FkZWQgaW4gZXBpc29kZSAyCmdhcG1pbmRlciA8LSByZWFkLmNzdigiZGF0YS9nYXBtaW5kZXJfZGF0YS5jc3YiLCBoZWFkZXI9VFJVRSkKIyMgZXh0cmFjdCB0aGUgYGNvdW50cnlgIGNvbHVtbiBmcm9tIGEgZGF0YSBmcmFtZSAod2UnbGwgc2VlIHRoaXMgbGF0ZXIpOwojIyBjb252ZXJ0IGZyb20gYSBmYWN0b3IgdG8gYSBjaGFyYWN0ZXI7CiMjIGFuZCBnZXQganVzdCB0aGUgbm9uLXJlcGVhdGVkIGVsZW1lbnRzCmNvdW50cmllcyA8LSB1bmlxdWUoYXMuY2hhcmFjdGVyKGdhcG1pbmRlciRjb3VudHJ5KSkKClRoZXJl4oCZcyBhIHdyb25nIHdheSAodXNpbmcgb25seSA9PSksIHdoaWNoIHdpbGwgZ2l2ZSB5b3UgYSB3YXJuaW5nOyBhIGNsdW5reSB3YXkgKHVzaW5nIHRoZSBsb2dpY2FsIG9wZXJhdG9ycyA9PSBhbmQgfCk7IGFuZCBhbiBlbGVnYW50IHdheSAodXNpbmcgJWluJSkuIFNlZSB3aGV0aGVyIHlvdSBjYW4gY29tZSB1cCB3aXRoIGFsbCB0aHJlZSBhbmQgZXhwbGFpbiBob3cgdGhleSAoZG9u4oCZdCkgd29yay4KCmdhcG1pbmRlciBkYXRhIGxvb2tzIGZpbmUgbm93LCBtdXN0IGhhdmUgZml4ZWQgd2hlbiBJIHJldXBsb2FkZWQgaXQuIAoKYGBge3J9CnNlQXNpYSA8LSBjKCJNeWFubWFyIiwiVGhhaWxhbmQiLCJDYW1ib2RpYSIsIlZpZXRuYW0iLCJMYW9zIikKIyMgcmVhZCBpbiB0aGUgZ2FwbWluZGVyIGRhdGEgdGhhdCB3ZSBkb3dubG9hZGVkIGluIGVwaXNvZGUgMgoKIyMgZXh0cmFjdCB0aGUgYGNvdW50cnlgIGNvbHVtbiBmcm9tIGEgZGF0YSBmcmFtZSAod2UnbGwgc2VlIHRoaXMgbGF0ZXIpOwojIyBjb252ZXJ0IGZyb20gYSBmYWN0b3IgdG8gYSBjaGFyYWN0ZXI7CiMjIGFuZCBnZXQganVzdCB0aGUgbm9uLXJlcGVhdGVkIGVsZW1lbnRzCmNvdW50cmllcyA8LSB1bmlxdWUoYXMuY2hhcmFjdGVyKGdhcG1pbmRlciRjb3VudHJ5KSkKY291bnRyaWVzICVpbiUgc2VBc2lhCmBgYAoKTm90IHN1cmUgd2hhdCBJIHNob3VsZCBoYXZlIGdvdHRlbiBoZXJlLiAoPykKCiNDaGFsbGVuZ2UgNAoKR2l2ZW4gdGhlIGZvbGxvd2luZyBjb2RlOgoKbSA8LSBtYXRyaXgoMToxOCwgbnJvdz0zLCBuY29sPTYpCnByaW50KG0pCgogICAgIFssMV0gWywyXSBbLDNdIFssNF0gWyw1XSBbLDZdClsxLF0gICAgMSAgICA0ICAgIDcgICAxMCAgIDEzICAgMTYKWzIsXSAgICAyICAgIDUgICAgOCAgIDExICAgMTQgICAxNwpbMyxdICAgIDMgICAgNiAgICA5ICAgMTIgICAxNSAgIDE4CgpXaGljaCBvZiB0aGUgZm9sbG93aW5nIGNvbW1hbmRzIHdpbGwgZXh0cmFjdCB0aGUgdmFsdWVzIDExIGFuZCAxND8KCkEuIG1bMiw0LDIsNV0KCkIuIG1bMjo1XQoKQy4gbVs0OjUsMl0KCkQuIG1bMixjKDQsNSldCgpJIGNob29zZSBELiBXYW50IHJvdyAyLCBjb21iaW5lZCBjb2x1bW5zIDQgYW5kIDUuIAoKQ29ycmVjdCEKCgojQ2hhbGxlbmdlIDUKCkdpdmVuIHRoZSBmb2xsb3dpbmcgbGlzdDoKCnhsaXN0IDwtIGxpc3QoYSA9ICJTb2Z0d2FyZSBDYXJwZW50cnkiLCBiID0gMToxMCwgZGF0YSA9IGhlYWQoaXJpcykpCgpVc2luZyB5b3VyIGtub3dsZWRnZSBvZiBib3RoIGxpc3QgYW5kIHZlY3RvciBzdWJzZXR0aW5nLCBleHRyYWN0IHRoZSBudW1iZXIgMiBmcm9tIHhsaXN0LiBIaW50OiB0aGUgbnVtYmVyIDIgaXMgY29udGFpbmVkIHdpdGhpbiB0aGUg4oCcYuKAnSBpdGVtIGluIHRoZSBsaXN0LgoKYGBge3J9Cgp4bGlzdCA8LSBsaXN0KGEgPSAiU29mdHdhcmUgQ2FycGVudHJ5IiwgYiA9IDE6MTAsIGRhdGEgPSBoZWFkKGlyaXMpKQoKeGxpc3RbW2JbMl1dXQpgYGAKYGBge3J9CnhsaXN0W1syWzJdXV0KYGBgCgpObyBhZ2Fpbi4gQW5zd2VyOiAKCmBgYHtyfQp4bGlzdCRiWzJdCmBgYAoKb3I6CgpgYGB7cn0KeGxpc3RbWzJdXVsyXQpgYGAKCiNDaGFsbGVuZ2UgNgoKR2l2ZW4gYSBsaW5lYXIgbW9kZWw6CgpgYGB7cn0KbW9kIDwtIGFvdihwb3AgfiBsaWZlRXhwLCBkYXRhPWdhcG1pbmRlcikKYGBgCgpFeHRyYWN0IHRoZSByZXNpZHVhbCBkZWdyZWVzIG9mIGZyZWVkb20gKGhpbnQ6IGF0dHJpYnV0ZXMoKSB3aWxsIGhlbHAgeW91KQoKRGlkbid0IGF0dGVtcHQgc2luY2UgaGF2aW5nIGFuIGlzc3VlIHdpdGggZ2FwbWluZGVyIGRhdGEgYWdhaW4uIAoKI0RhdGEgZnJhbWVzCgpgYGB7cn0KaGVhZChnYXBtaW5kZXJbM10pCmBgYAoKYGBge3J9CmRhdGExID0gcmVhZC5jc3Yofi9kYXRhL2dhcG1pbmRlcl9kYXRhLmNzdikKYGBgCgo=</div>
 
 
 

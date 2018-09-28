@@ -47,9 +47,171 @@ Come up with at least 2 different commands that will produce the following outpu
   b   c   d 
 6.2 7.1 4.8 
 
-After you find 2 different commands, compare notes with your neighbour. Did you have different strategies?
+After you find 2 d
+ifferent commands, compare notes with your neighbour. Did you have different strategies?
+
+Attempt 1
+```{r}
+y = c(6.2, 7.1, 4.8)
+names(y) = c('b', 'c', 'd')
+print(y)
+```
+
+Attempt 2
+```{r}
+numbers = c(6.2, 7.1, 4.8)
+titles = c("b","c","d")
+matrix = matrix(c(titles, numbers), nrow=2, byrow=TRUE)
+matrix 
+```
+
+Worked, more or less, but not what they were going for. Use previous matrix (x) with (-)
+
+Other option
+
+```{r}
+x[-c(1,5)]
+```
+
+#Subsetting by name or logical operations
+
+```{r}
+x[c("a", "e")]
+```
+
+#Challenge 2
+
+Given the following code:
+
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+
+  a   b   c   d   e 
+5.4 6.2 7.1 4.8 7.5 
+
+Write a subsetting command to return the values in x that are greater than 4 and less than 7.
+
+```{r}
+x[c(x > 4, x < 7)]
+```
+
+Why didn't this work? Where are NA's from?
+
+Instead, answer created a subset. 
+
+```{r}
+x_subset <- x[x<7 & x>4]
+print(x_subset)
+```
+
+#Challenge 3 
+
+Selecting elements of a vector that match any of a list of components is a very common data analysis task. For example, the gapminder data set contains country and continent variables, but no information between these two scales. Suppose we want to pull out information from southeast Asia: how do we set up an operation to produce a logical vector that is TRUE for all of the countries in southeast Asia and FALSE otherwise?
+
+Suppose you have these data:
+
+seAsia <- c("Myanmar","Thailand","Cambodia","Vietnam","Laos")
+## read in the gapminder data that we downloaded in episode 2
+gapminder <- read.csv("data/gapminder_data.csv", header=TRUE)
+## extract the `country` column from a data frame (we'll see this later);
+## convert from a factor to a character;
+## and get just the non-repeated elements
+countries <- unique(as.character(gapminder$country))
+
+There’s a wrong way (using only ==), which will give you a warning; a clunky way (using the logical operators == and |); and an elegant way (using %in%). See whether you can come up with all three and explain how they (don’t) work.
+
+gapminder data looks fine now, must have fixed when I reuploaded it. 
+
+```{r}
+seAsia <- c("Myanmar","Thailand","Cambodia","Vietnam","Laos")
+## read in the gapminder data that we downloaded in episode 2
+
+## extract the `country` column from a data frame (we'll see this later);
+## convert from a factor to a character;
+## and get just the non-repeated elements
+countries <- unique(as.character(gapminder$country))
+countries %in% seAsia
+```
+
+Not sure what I should have gotten here. (?)
+
+#Challenge 4
+
+Given the following code:
+
+m <- matrix(1:18, nrow=3, ncol=6)
+print(m)
+
+     [,1] [,2] [,3] [,4] [,5] [,6]
+[1,]    1    4    7   10   13   16
+[2,]    2    5    8   11   14   17
+[3,]    3    6    9   12   15   18
+
+Which of the following commands will extract the values 11 and 14?
+
+A. m[2,4,2,5]
+
+B. m[2:5]
+
+C. m[4:5,2]
+
+D. m[2,c(4,5)]
+
+I choose D. Want row 2, combined columns 4 and 5. 
+
+Correct!
+
+
+#Challenge 5
+
+Given the following list:
+
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+
+Using your knowledge of both list and vector subsetting, extract the number 2 from xlist. Hint: the number 2 is contained within the “b” item in the list.
 
 ```{r}
 
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+
+xlist[[b[2]]]
+```
+```{r}
+xlist[[2[2]]]
+```
+
+No again. Answer: 
+
+```{r}
+xlist$b[2]
+```
+
+or:
+
+```{r}
+xlist[[2]][2]
+```
+
+#Challenge 6
+
+Given a linear model:
+
+```{r}
+mod <- aov(pop ~ lifeExp, data=gapminder)
+```
+
+Extract the residual degrees of freedom (hint: attributes() will help you)
+
+Didn't attempt since having an issue with gapminder data again. 
+
+#Data frames
+
+```{r}
+head(gapminder[3])
+```
+
+```{r}
+data1 = read.csv(~/data/gapminder_data.csv)
 ```
 
