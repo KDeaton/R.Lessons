@@ -1,0 +1,55 @@
+---
+title: "R. Lesson Week 2.1 Subsetting Data"
+author: Kelsey Deaton
+date: 2018-09-27
+output: html_notebook
+---
+
+First, let's create a matrix. 
+
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+x
+```
+
+#Accessing elements using indices
+
+```{r}
+x[1]
+x[4]
+```
+
+To ask for multiple elements, need to use c()
+
+```{r}
+x[c(1,4)]
+```
+to leave out c() doesn't work.
+```{r}
+x[1,4]
+```
+
+#Challenge 1
+
+Given the following code:
+
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+
+output:
+  a   b   c   d   e 
+5.4 6.2 7.1 4.8 7.5 
+
+Come up with at least 2 different commands that will produce the following output:
+
+  b   c   d 
+6.2 7.1 4.8 
+
+After you find 2 different commands, compare notes with your neighbour. Did you have different strategies?
+
+```{r}
+
+```
+
