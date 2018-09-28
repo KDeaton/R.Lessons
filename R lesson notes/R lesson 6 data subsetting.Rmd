@@ -1,5 +1,5 @@
 ---
-title: "R. Lesson Week 2.1 Subsetting Data"
+title: "R. Lesson 6 Week 2 Subsetting Data"
 author: Kelsey Deaton
 date: 2018-09-27
 output: html_notebook
