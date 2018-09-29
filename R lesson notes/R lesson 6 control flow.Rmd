@@ -92,6 +92,8 @@ while(this condition is true){
 
 Write a script that loops through the gapminder data by continent and prints out whether the mean life expectancy is smaller or larger than 50 years.
 
+Have to include finding mean lifeExp because not already in the dataset. 
+
 ```{r}
 thresholdValue <- 50
 
@@ -122,18 +124,24 @@ for( iContinent in unique(gapminder$continent) ){
 
 Modify the script from Challenge 3 to loop over each country. This time print out whether the life expectancy is smaller than 50, between 50 and 70, or greater than 70.
 
-```{r}
-thresholdValue <- 50
+I think I'll have to do an else..if 
 
-for( iContinent in unique(gapminder$continent) ){
-   tmp <- mean(subset(gapminder, continent==iContinent)$lifeExp)
+```{r}
+lowvalue = 50
+highvalue = 70
+
+for( icountry in unique(gapminder$country) ){
+   tmp <- mean(subset(gapminder, country==icountry)$lifeExp)
    
-   if(tmp < thresholdValue){
-       cat("Average Life Expectancy in", iContinent, "is less than", thresholdValue, "\n")
+   if(tmp < lowvalue){
+       cat("Average Life Expectancy in", icountry, "is less than", lowvalue, "\n")
    }
-   else{
-       cat("Average Life Expectancy in", iContinent, "is greater than", thresholdValue, "\n")
-        } 
+   else if (tmp > highvalue) {
+       cat("Average Life Expectancy in", icountry, "is greater than", highvalue, "\n")
+   } 
+   else {
+       cat("Average Life Expectancy in", icountry, "is between", lowvalue, "and", highvalue, "\n")
+   }
    rm(tmp)
    } 
 ```
