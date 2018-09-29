@@ -1,0 +1,140 @@
+---
+title: "R Lesson 7 Control Flow"
+author: Kelsey Deaton
+date: 2018-09-29
+output: html_notebook
+---
+
+Conditional statements
+
+#If statements
+
+if (condition is true) {
+  perform action
+}
+
+# if ... else
+if (condition is true) {
+  perform action
+} else { if the condition is false,
+  perform alternative action
+}
+
+# else if
+
+if (x >= 10) {
+  print("x is greater than or equal to 10")
+} else if (x > 5) {
+  print("x is greater than 5, but less than 10")
+} else {
+  print("x is less than 5")
+}
+
+
+#Challenge 1
+
+Use an if() statement to print a suitable message reporting whether there are any records from 2002 in the gapminder dataset. Now do the same for 2012.
+
+```{r}
+gapminder = read.csv(path.expand("~/R.Lessons/data/gapminder_data.csv"))
+
+if(gapminder$year == 2002) {
+  print("data available")
+} else {
+  print("data not available")
+}
+```
+
+Apparently this is a common mistake, because SC says "If your condition evaluates to a vector with more than one logical element, the function if() will still run, but will only evaluate the condition in the first element. Here you need to make sure your condition is of length 1."
+
+...SC's answer is long and convoluted. Gives a tip that all() or any() could be used...
+
+```{r}
+? any()
+
+if(any(gapminder$year == 2002)) {
+  print("data available")
+} else {
+  print("data not available")
+}
+```
+
+works and looks way more simple than the other way. 
+
+Try for 2012:
+
+```{r}
+if(any(gapminder$year == 2012)) {
+  print("data available")
+} else {
+  print("data not available")
+}
+```
+
+
+#For loops
+
+Good for when "he calculation at each iteration depends on the results of previous iterations"
+
+for(iterator in set of values){
+  do a thing
+}
+
+#While loops
+
+Repeat an operation until a condition is met. 
+
+while(this condition is true){
+  do a thing
+}
+
+#Challenge 3
+
+Write a script that loops through the gapminder data by continent and prints out whether the mean life expectancy is smaller or larger than 50 years.
+
+```{r}
+thresholdValue <- 50
+
+for( iContinent in unique(gapminder$continent) ){
+   tmp <- mean(subset(gapminder, continent==iContinent)$lifeExp)
+   
+   if(tmp < thresholdValue){
+       cat("Average Life Expectancy in", iContinent, "is less than", thresholdValue, "\n")
+   }
+   else{
+       cat("Average Life Expectancy in", iContinent, "is greater than", thresholdValue, "\n")
+        } 
+   rm(tmp)
+   } 
+```
+
+##Questions
+
+1. How is cat() different than c()?
+2. What is the "\n" ? 
+3. Why rm(tmp)?
+
+```{r}
+? cat()
+```
+
+#Challenge 4
+
+Modify the script from Challenge 3 to loop over each country. This time print out whether the life expectancy is smaller than 50, between 50 and 70, or greater than 70.
+
+```{r}
+thresholdValue <- 50
+
+for( iContinent in unique(gapminder$continent) ){
+   tmp <- mean(subset(gapminder, continent==iContinent)$lifeExp)
+   
+   if(tmp < thresholdValue){
+       cat("Average Life Expectancy in", iContinent, "is less than", thresholdValue, "\n")
+   }
+   else{
+       cat("Average Life Expectancy in", iContinent, "is greater than", thresholdValue, "\n")
+        } 
+   rm(tmp)
+   } 
+```
+
