@@ -106,13 +106,16 @@ for( iContinent in unique(gapminder$continent) ){
    else{
        cat("Average Life Expectancy in", iContinent, "is greater than", thresholdValue, "\n")
         } 
-   rm(tmp)
-   } 
+   #rm(tmp)
+} 
+
+  
+
 ```
 
 ##Questions
 
-1. How is cat() different than c()?
+1. How is cat() different than c()? c v c&print?
 2. What is the "\n" ? 
 3. Why rm(tmp)?
 
@@ -144,5 +147,43 @@ for( icountry in unique(gapminder$country) ){
    }
    rm(tmp)
    } 
+```
+
+Works!
+
+SC answer was slightly different, in that they coded the between conditional statement as 
+
+else if(tmp > lowerThreshold && tmp < upperThreshold){
+        cat("Average Life Expectancy in", iCountry, "is between", lowerThreshold, "and", upperThreshold, "\n")
+        
+I think my way was easier, but good to know how to use two conditions. 
+
+#Challenge 5
+
+Advanced
+
+Write a script that loops over each country in the gapminder dataset, tests whether the country starts with a ‘B’, and graphs life expectancy against time as a line graph if the mean life expectancy is under 50 years.
+
+Approach: can set up for loop with if for B then plot. Not sure how to plot yet... Also not sure how to check if a name starts with B... 
+
+grep() is a function for pattern matching
+
+##Question: how could I find how to do this? Not in help... -> StackOverflow
+```{r}
+? grep()
+
+BCountries <- grep("^B", unique(gapminder$country), value=TRUE)
+BCountries
+```
+
+"^" indicates first letter. If "^" isn't there, it will return any country that has a capital B.
+
+```{r}
+BCountries_other <- grep("B", unique(gapminder$country), value=TRUE)
+BCountries_other
+```
+
+```{r}
+typeof(gapminder)
 ```
 
