@@ -39,3 +39,105 @@ ggplot(data = gapminder, aes(x = year, y = lifeExp, color = continent)) + geom_p
 
 #Layers
 
+Can have layers of lines (geom_line) and points (geom_point)
+
+#Challenge 3
+
+Switch the order of the point and line layers from the previous example. What happened?
+
+Previous example:
+
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+  geom_line(aes(color=continent)) + geom_point()
+```
+
+Changed: Estimate that lines will be on top of points. 
+
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+   geom_point() + geom_line(aes(color=continent))
+```
+#note! 
+
+To apply an aesthetic to all points, do not use aes(). Use aes() to apply an aesthetic by variable. 
+
+Example: geom_point(color="black") vs geom_line(aes(color=continent))
+
+*Note that "color" must use ""
+
+#Transformations and statistics
+
+Can change scale of x axis using scale()
+
+Can make data points more transparent using alpha()
+
+example:
+
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10()
+```
+
+#add a regression line with geom_smooth
+```{r}
+? geom_smooth 
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+```
+
+#Challenge 4a
+
+Modify the color and size of the points on the point layer in the previous example.
+
+Hint: do not use the aes function.
+
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(color="red", size=3) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+```
+
+
+#Challenge 4b
+
+Modify your solution to Challenge 4a so that the points are now a different shape and are colored by continent with new trendlines. Hint: The color argument can be used inside the aesthetic.
+
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
+  geom_point(aes(color=continent), shape="square") + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+? geom_point
+```
+
+#Multi-panel figures
+
+example
+
+```{r}
+starts.with <- substr(gapminder$country, start = 1, stop = 1)
+az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country)
+```
+
+#Text
+
+example
+
+```{r}
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+```
+
+#Exporting the plot
+
+use ggsave()
+
