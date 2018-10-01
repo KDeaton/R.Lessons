@@ -112,16 +112,32 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
 
 #Multi-panel figures
 
-example
+example. comments are my own attempt to try to explain their code.
 
 ```{r}
-starts.with <- substr(gapminder$country, start = 1, stop = 1)
-az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+starts.with <- substr(gapminder$country, start = 1, stop = 1) #makes a single letter character substring for each country based on first letter
+az.countries <- gapminder[starts.with %in% c("A", "Z"), ] #assigns countries with first letters A or Z to new variable
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
-  geom_line() + facet_wrap( ~ country)
+  geom_line() + facet_wrap( ~ country) #plots this
 ```
 
+##Questions
+
+Explaining the above a bit more...
+
+```{r}
+?substr() #substrings of a character vector
+
+?facet_wrap() #wrap a 1d ribbon of panels into 2d, basically just displays the graph in 2x3 instead of 1x6
+
+?Facet()
+```
+
+
+
 #Text
+
+use "labs()" function to give labels to plots
 
 example
 
@@ -141,3 +157,54 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
 
 use ggsave()
 
+example
+
+```{r}
+lifeExp_plot <- ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  labs(
+    x = "Year",              # x axis title
+    y = "Life expectancy",   # y axis title
+    title = "Figure 1",      # main title of figure
+    color = "Continent"      # title of legend
+  ) +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+
+ggsave(filename = "R.Lessons/graphs/lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi = 300, units = "cm")
+```
+##Question
+
+how do I save a filename this way? what are the specifics for path name
+
+#Challenge 5
+
+Create a density plot of GDP per capita, filled by continent.
+
+Advanced:
+
+Transform the x axis to better visualise the data spread.
+Add a facet layer to panel the density plots by year.
+
+attempt 1:
+```{r}
+density_plot = ggplot(data=gapminder, x=gapminder$gdpPercap) + geom_density(aes(x="gapminder$gdpPercap", color="continent"))
+density_plot
+```
+
+SC's answer makes no sense. Graphs look horrible. 
+
+Attempt 2, based on some of the SC answer:
+
+```{r}
+density_plot = ggplot(data=gapminder, aes(x=gapminder$gdpPercap, fill=continent)) + geom_density() #switched fill=continent to first ggplot aes() ##not sure why it makes the difference it does?
+density_plot
+```
+
+I'm happy with that. What if we log transform x axis?
+
+```{r}
+density_plot = ggplot(data=gapminder, aes(x=gapminder$gdpPercap, fill=continent)) + geom_density() + scale_x_log10() #added log x axis
+density_plot
+```
+
+:) 
