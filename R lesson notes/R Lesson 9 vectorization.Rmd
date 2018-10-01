@@ -1,0 +1,35 @@
+---
+title: "R Lesson 9 Vectorization"
+author: Kelsey Deaton
+date: 2018-10-01
+output: html_notebook
+---
+
+R code is mostly automatically vectorized. 
+
+#Challenge 1
+
+Let’s try this on the pop column of the gapminder dataset.
+
+Make a new column in the gapminder data frame that contains population in units of millions of people. Check the head or tail of the data frame to make sure it worked.
+
+Sidenote: pop is currently reported as the full number, e.g. 1,000,000 vs 1 million.
+
+```{r}
+pop_as_million = round(gapminder$pop / 1000000, digits=1)
+gapminder = cbind(gapminder, pop_as_million)
+head(gapminder)
+```
+
+Looks good to me. 
+
+#Challenge 2
+
+On a single graph, plot population, in millions, against year, for all countries. Don’t worry about identifying which country is which.
+
+Repeat the exercise, graphing only for China, India, and Indonesia. Again, don’t worry about which is which.
+
+```{r}
+ggplot(gapminder)
+```
+
