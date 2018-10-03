@@ -6,6 +6,7 @@ output:
   html_document:
     df_print: paged
 ---
+##What is the new output format above?
 
 R code is mostly automatically vectorized. 
 
