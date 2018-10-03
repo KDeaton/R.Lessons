@@ -1,8 +1,10 @@
 ---
 title: "R Lesson 9 Vectorization"
-author: Kelsey Deaton
-date: 2018-10-01
-output: html_notebook
+author: "Kelsey Deaton"
+date: '2018-10-01'
+output:
+  html_document:
+    df_print: paged
 ---
 
 R code is mostly automatically vectorized. 
