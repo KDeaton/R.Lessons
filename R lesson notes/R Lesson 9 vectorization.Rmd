@@ -29,7 +29,35 @@ On a single graph, plot population, in millions, against year, for all countries
 
 Repeat the exercise, graphing only for China, India, and Indonesia. Again, don’t worry about which is which.
 
+Attempt 1:
 ```{r}
-ggplot(gapminder)
+ggplot(data=gapminder, aes(x=year, y=pop_as_million))
 ```
+Didn't work. Need to define what type of graph!
+
+Answer:
+
+```{r}
+ggplot(gapminder, aes(x = year, y = pop_as_million)) + geom_point #didn't have brackets!
+```
+not working for some reason... didn't have brackets for geom_point()
+
+Try directly copying SC code...
+
+```{r}
+ggplot(gapminder, aes(x = year, y = pop_as_million)) +
+ geom_point()
+```
+
+part b:
+
+```{r}
+subset_countries <- c("China", "India", "Indonesia")
+
+ggplot(gapminder[gapminder$country %in% subset_countries,], 
+       aes(x = year, y = pop_as_million)) +
+  geom_point()
+```
+
+##Why am I still getting all countries?
 
