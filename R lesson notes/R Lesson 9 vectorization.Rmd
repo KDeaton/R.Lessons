@@ -19,6 +19,7 @@ Make a new column in the gapminder data frame that contains population in units 
 Sidenote: pop is currently reported as the full number, e.g. 1,000,000 vs 1 million.
 
 ```{r}
+gapminder = read.csv(path.expand("~/R.Lessons/data/gapminder_data.csv"))
 pop_as_million = round(gapminder$pop / 1000000, digits=1)
 gapminder = cbind(gapminder, pop_as_million)
 head(gapminder)
@@ -41,7 +42,7 @@ Didn't work. Need to define what type of graph!
 Answer:
 
 ```{r}
-ggplot(gapminder, aes(x = year, y = pop_as_million)) + geom_point #didn't have brackets!
+#ggplot(gapminder, aes(x = year, y = pop_as_million)) + geom_point #didn't have brackets!
 ```
 not working for some reason... didn't have brackets for geom_point()
 
