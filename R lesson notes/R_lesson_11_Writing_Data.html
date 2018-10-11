@@ -148,9 +148,6 @@ ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
 dev.off()</code></pre>
 <pre><code>## png 
 ##   2</code></pre>
-<blockquote>
-<p>Where is the pdf?</p>
-</blockquote>
 </div>
 <div id="challenge-1" class="section level1">
 <h1>Challenge 1</h1>
@@ -164,7 +161,43 @@ p + facet_grid(. ~continent)
 dev.off()</code></pre>
 <pre><code>## png 
 ##   2</code></pre>
-<p>Still not working. … …</p>
+</div>
+<div id="writing-data-1" class="section level1">
+<h1>Writing Data</h1>
+<p>example</p>
+<pre class="r"><code>#make a subset for Australia
+
+subset_Aus = gapminder[gapminder$country == &quot;Australia&quot;, ]
+
+#write a data set for this subset
+
+write.table(subset_Aus,
+  file=&quot;gapminderAus.csv&quot;,
+  sep=&quot;,&quot;
+)</code></pre>
+<blockquote>
+<p>SC lesson uses shell to look at file. I just opened it from Files window.</p>
+</blockquote>
+<p>By default R will wrap character vectors with quotation marks when writing out to file. It will also write out the row and column names. (ex: “Oceania”)</p>
+<p>Let’s fix this:</p>
+<pre class="r"><code>write.table(
+  gapminder[gapminder$country == &quot;Australia&quot;,],
+  file=&quot;gapminderAus.csv&quot;,
+  sep=&quot;,&quot;, quote=FALSE, row.names=FALSE
+)</code></pre>
+<p>Fixed.</p>
+</div>
+<div id="challenge-2" class="section level1">
+<h1>Challenge 2</h1>
+<p>Write a data-cleaning script file that subsets the gapminder data to include only data points collected since 1990.</p>
+<p>Use this script to write out the new subset to a file in the cleaned-data/ directory.</p>
+<p>(I’ll use my data folder instead)</p>
+<pre class="r"><code>write.table(
+  gapminder[gapminder$year &gt;= 1990, ],
+  file=&quot;~/R.Lessons/data/gapminder1990plus.csv&quot;,
+  sep=&quot;,&quot;, quote=FALSE, row.names=FALSE
+)</code></pre>
+<p>Wrote on my own and it Worked!</p>
 </div>
 
 

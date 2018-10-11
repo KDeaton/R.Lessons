@@ -16,6 +16,7 @@ output: html_document
 * pdf()
 
 ```{r}
+
 gapminder = read.csv(path.expand("~/R.Lessons/data/gapminder_data.csv"))
 
 pdf("Life_Exp_vs_time.pdf", width=12, height=4)
@@ -28,7 +29,7 @@ ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
 dev.off()
 ```
 
-> Where is the pdf?
+
 
 
 #Challenge 1 
@@ -45,4 +46,56 @@ p + facet_grid(. ~continent)
 dev.off()
 ```
 
-Still not working. ... ...
+#Writing Data
+
+example
+
+```{r}
+#make a subset for Australia
+
+subset_Aus = gapminder[gapminder$country == "Australia", ]
+
+#write a data set for this subset
+
+write.table(subset_Aus,
+  file="gapminderAus.csv",
+  sep=","
+)
+```
+
+> SC lesson uses shell to look at file. I just opened it from Files window. 
+
+By default R will wrap character vectors with quotation marks when writing out to file. It will also write out the row and column names. (ex: "Oceania")
+
+Let’s fix this:
+
+```{r}
+write.table(
+  gapminder[gapminder$country == "Australia",],
+  file="gapminderAus.csv",
+  sep=",", quote=FALSE, row.names=FALSE
+)
+```
+
+
+Fixed. 
+
+#Challenge 2
+
+Write a data-cleaning script file that subsets the gapminder data to include only data points collected since 1990.
+
+Use this script to write out the new subset to a file in the cleaned-data/ directory.
+
+(I'll use my data folder instead)
+
+```{r}
+write.table(
+  gapminder[gapminder$year >= 1990, ],
+  file="~/R.Lessons/data/gapminder1990plus.csv",
+  sep=",", quote=FALSE, row.names=FALSE
+)
+```
+
+Wrote on my own and it Worked!
+
+
