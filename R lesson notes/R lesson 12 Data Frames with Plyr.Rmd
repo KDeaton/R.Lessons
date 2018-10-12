@@ -1,20 +1,86 @@
 ---
-title: "R Notebook"
-output:
-  html_document:
-    df_print: paged
+title: "R Lesson 12 Data Frames with Plyr"
+author: "Kelsey Deaton"
+date: 2018-10-12
+output: html_document
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+Load gapminder data
 
 ```{r}
-plot(cars)
+gapminder = read.csv(path.expand("~/R.Lessons/data/gapminder_data.csv"))
+
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+From lesson 11:
+```{r}
+# Takes a dataset and multiplies the population column
+# with the GDP per capita column.
+calcGDP <- function(dat, year=NULL, country=NULL) {
+  if(!is.null(year)) {
+    dat <- dat[dat$year %in% year, ]
+  }
+  if (!is.null(country)) {
+    dat <- dat[dat$country %in% country,]
+  }
+  gdp <- dat$pop * dat$gdpPercap
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+  new <- cbind(dat, gdp=gdp)
+  return(new)
+}
+```
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+what if we wanted to calculated the mean GDP per continent?
+We could run calcGDP and then take the mean of each continent:
+
+```{r}
+withGDP <- calcGDP(gapminder)
+mean(withGDP[withGDP$continent == "Africa", "gdp"])
+```
+
+But this isn't very "nice"
+
+Instead We want to split our data into groups, in this case continents, apply some calculations on that group, then optionally combine the results together afterwards.
+
+#plyr package
+
+```{r}
+library("plyr")
+```
+
+xxply(.data, .variables, .function)
+where x = "a" = array, "l" = list, "d" = data frame, "r" = n replicates, "m" = function arguments
+
+example:
+
+```{r}
+ddply(
+ .data = calcGDP(gapminder),
+ .variables = "continent",
+ .fun = function(x) mean(x$gdp)
+)
+```
+
+Calculate the average life expectancy per continent. Which has the longest? Which had the shortest?
+
+```{r}
+ddply(
+ .data = gapminder,
+ .variables = "continent",
+ .fun = function(x) mean(x$lifeExp)
+)
+```
+
+#Challenge 2
+
+Calculate the average life expectancy per continent and year. Which had the longest and shortest in 2007? Which had the greatest change in between 1952 and 2007?
+
+```{r}
+ddply(
+  .data = gapminder,
+  .variables = c("continent", "year"),
+  .fun = function(x) mean(x$lifeExp)
+)
+```
+
+
