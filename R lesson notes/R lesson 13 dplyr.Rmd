@@ -1,20 +1,172 @@
 ---
-title: "R Notebook"
+title: "R lesson 13 Dataframe Manipulation with dplyr"
+author: "Kelsey Deaton"
+date: 2018-10-31
 output:
   html_document:
     df_print: paged
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+Load data:
 
 ```{r}
-plot(cars)
+gapminder = read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv")
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+#dplyr
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+```{r}
+install.packages("dplyr")
+library("dplyr")
+```
+
+#Select()
+
+select(dataframe, a, c) will return a dataframe with columns a and c
+
+can use pipe operator %>% , which is kinda like "then"
+
+>for more info see: https://www.datacamp.com/community/tutorials/pipe-r-tutorial#intro
+
+in:
+year_country_gdp <- gapminder %>% select(year,country,gdpPercap)
+
+... you take the gapminder data, THEN, select the subset of data
+
+#Filter()
+
+Can filter a dataset to make a subset that matches the filter criteria
+
+```{r}
+year_country_gdp_euro <- gapminder %>%
+    filter(continent=="Europe") %>%
+    select(year,country,gdpPercap)
+```
+
+#Challenge 1
+
+Write a single command (which can span multiple lines and includes pipes) that will produce a dataframe that has the African values for lifeExp, country and year, but not for other Continents. How many rows does your dataframe have and why?
+
+```{r}
+challenge_1 = gapminder %>%
+  filter(continent=="Africa") %>%
+  select(year, country, lifeExp)
+
+nrow(challenge_1)
+```
+
+#Group_by()
+
+Makes a subset dataframe for each of the variables that they are being grouped by. 
+
+```{r}
+gapminder %>% group_by(continent)
+```
+This would make a subset data frame for each continent.
+
+#Summarize()
+
+Performs a function (defined within summarize) on each subset data frame, then brings them back together in a summary dataframe. 
+
+```{r}
+gdp_bycontinents <- gapminder %>%
+    group_by(continent) %>%
+    summarize(mean_gdpPercap=mean(gdpPercap))
+gdp_bycontinents
+```
+
+#Challenge 2
+
+Calculate the average life expectancy per country. Which has the longest average life expectancy and which has the shortest average life expectancy?
+
+```{r}
+lifeExp_byCountries = gapminder %>%
+  group_by(country) %>%
+  summarize(mean_lifeExp = mean(lifeExp))
+lifeExp_byCountries
+```
+
+To only show the shortest and longest, should have added this to above code:
+
+```{r}
+lifeExp_byCountries %>%
+  filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
+lifeExp_byCountries
+```
+Still get all countries when "LifeExp_byCountries" is included at the end, must no longer be filtered. 
+
+
+```{r}
+lifeExp_byCountries = gapminder %>%
+  group_by(country) %>%
+  summarize(mean_lifeExp = mean(lifeExp))
+lifeExp_byCountries %>%
+  filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
+
+```
+
+
+Can group by multiple variables.
+
+```{r}
+gdp_bycontinents_byyear <- gapminder %>%
+    group_by(continent,year) %>%
+    summarize(mean_gdpPercap=mean(gdpPercap))
+gdp_bycontinents_byyear
+```
+
+#count() & n()
+
+Can count the number of observations of a certain variable in a subset. 
+```{r}
+gapminder %>%
+    filter(year == 2002) %>%
+    count(continent, sort = TRUE)
+```
+
+Can have multiple summary operations. 
+
+```{r}
+gapminder %>%
+    group_by(continent) %>%
+    summarize(
+      mean_le = mean(lifeExp),
+      min_le = min(lifeExp),
+      max_le = max(lifeExp),
+      se_le = sd(lifeExp)/sqrt(n()))
+```
+
+#mutate()
+
+create new variables before summarizing. 
+
+#ifelse()
+
+ifelse(function, do if true, do if false)
+
+#advanced challenge
+
+Calculate the average life expectancy in 2002 of 2 randomly selected countries for each continent. Then arrange the continent names in reverse order. Hint: Use the dplyr functions arrange() and sample_n(), they have similar syntax to other dplyr functions.
+
+```{r}
+gapminder %>%
+  sample_n(2) %>%
+  arrange(desc(country))
+```
+
+Worked but forgot about the "in 2002" and "calculate average lifeExp" part...
+
+Try again:
+
+```{r}
+gapminder %>%
+  group_by(country) %>%
+  filter(year==2002) %>%
+  summarize(meanlifeExp=mean(lifeExp)) %>%
+  sample_n(2) %>%
+  arrange(desc(country))
+
+```
+
+>SWC did way different order of operations, does it make a difference here? how? 
