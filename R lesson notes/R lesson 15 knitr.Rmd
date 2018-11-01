@@ -1,10 +1,11 @@
 ---
 title: "R Lesson 15 knitr"
 author: "Kelsey Deaton"
-date: 2018-11-01
+date: '2018-11-01'
 output:
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 #Producing reports with knitr
 
@@ -14,3 +15,29 @@ load data
 gapminder = read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv")
 ```
 
+#Markdown
+
+aka formatting.
+
+bold = two asterisks on either side **bold**
+
+italics = _ on either side _italics_
+
+make lists with bullets
+* like this
+or
+- like that
+
+#Headers
+
+# Title
+## Main section
+### Sub-section
+#### Sub-sub section
+
+
+[text to show](http://the-web-page.com)
+
+> does in-line r code go in the Markdown area? 
+
+'r round(2.03, 2)'
