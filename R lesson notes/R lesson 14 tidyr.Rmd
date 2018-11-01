@@ -75,3 +75,27 @@ gap_normal = gap_long %>%
 gap_normal
 ```
 
+#convert to wide
+
+```{r}
+gap_temp <- gap_long %>% unite(var_ID,continent,country,sep="_")
+head(gap_temp)
+```
+
+> I don't understand why you would do this. 
+
+```{r}
+gap_temp <- gap_long %>%
+    unite(ID_var,continent,country,sep="_") %>%
+    unite(var_names,obs_type,year,sep="_")
+head(gap_temp)
+```
+
+```{r}
+gap_wide_new <- gap_long %>%
+    unite(ID_var,continent,country,sep="_") %>%
+    unite(var_names,obs_type,year,sep="_") %>%
+    spread(var_names,obs_values)
+head(gap_wide_new)
+```
+
