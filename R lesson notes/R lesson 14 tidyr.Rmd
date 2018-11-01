@@ -6,3 +6,72 @@ output:
   html_document:
     df_print: paged
 ---
+#Data frame manipulation with tidyr
+
+load data first
+
+```{r}
+gapminder = read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv")
+```
+
+```{r}
+library("tidyr")
+library("dplyr")
+```
+
+Wide v long dataframe format
+
+#gather()
+
+```{r}
+gap_wide = read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_wide.csv", stringsAsFactors = FALSE)
+```
+
+
+```{r}
+gap_long <- gap_wide %>%
+    gather(obstype_year, obs_values, starts_with('pop'),
+           starts_with('lifeExp'), starts_with('gdpPercap'))
+str(gap_long)
+```
+
+```{r}
+head(gapminder)
+```
+
+```{r}
+head(gap_wide)
+```
+
+```{r}
+head(gap_long)
+```
+
+```{r}
+gap_long <- gap_long %>% separate(obstype_year,into=c('obs_type','year'),sep="_")
+gap_long$year <- as.integer(gap_long$year)
+```
+
+
+#Challenge 2
+
+Using gap_long, calculate the mean life expectancy, population, and gdpPercap for each continent. Hint: use the group_by() and summarize() functions we learned in the dplyr lesson
+
+```{r}
+challenge_2 = gap_long %>%
+  group_by(continent, obs_type) %>%
+  summarize(mean=mean(obs_values))
+challenge_2
+```
+
+
+#Spread()
+
+goes from long format to intermediate
+
+```{r}
+gap_normal = gap_long %>% 
+  spread(obs_type, obs_values)
+gap_normal
+```
+
