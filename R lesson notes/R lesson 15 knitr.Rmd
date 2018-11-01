@@ -1,0 +1,16 @@
+---
+title: "R Lesson 15 knitr"
+author: "Kelsey Deaton"
+date: 2018-11-01
+output:
+  html_document:
+    df_print: paged
+---
+#Producing reports with knitr
+
+load data
+
+```{r}
+gapminder = read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder_data.csv")
+```
+
