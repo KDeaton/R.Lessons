@@ -99,3 +99,26 @@ gap_wide_new <- gap_long %>%
 head(gap_wide_new)
 ```
 
+#challenge 3
+
+Take this 1 step further and create a gap_ludicrously_wide format data by spreading over countries, year and the 3 metrics? Hint this new dataframe should only have 5 rows.
+
+```{r}
+gap_very_wide = gap_wide_new <- gap_long %>%
+    unite(ID_var,continent,country,sep="_") %>%  #change should go here, by uniting obstype,year,country... then spread
+    unite(var_names,obs_type,year,sep="_") %>%
+    spread(var_names,obs_values) %>%
+    
+  
+
+```
+
+
+Answer:
+```{r}
+gap_ludicrously_wide <- gap_long %>%
+   unite(var_names,obs_type,year,country,sep="_") %>%
+   spread(var_names,obs_values)
+head(gap_ludicrously_wide)
+```
+
