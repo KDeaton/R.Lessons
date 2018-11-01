@@ -1,0 +1,15 @@
+---
+title: "R Lesson 16 Writing Good Software"
+author: "Kelsey Deaton"
+date: '2018-11-01'
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+install.packages("ProjectTemplate")
+library("ProjectTemplate")
+```
+
+Just some good advice for best practice. See [SWC lesson 16](http://swcarpentry.github.io/r-novice-gapminder/16-wrap-up/index.html)
